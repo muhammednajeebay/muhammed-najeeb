@@ -246,9 +246,9 @@
               const distance = Math.sqrt(distX * distX + distY * distY);
               
               // Move away from cursor if close
-              if (distance < 300) {
-                  const moveX = (distX / distance) * (300 - distance) * 0.05 * intensity;
-                  const moveY = (distY / distance) * (300 - distance) * 0.05 * intensity;
+              if (distance < 500) {
+                  const moveX = (distX / distance) * (500 - distance) * 0.05 * intensity;
+                  const moveY = (distY / distance) * (500 - distance) * 0.05 * intensity;
                   
                   element.style.transform = `translate(${-moveX}px, ${-moveY}px) rotate(${moveX * 0.1}deg)`;
               } else {
