@@ -1135,3 +1135,41 @@ footer {
     color: var(--text-dark);
   }
   
+/* Mobile Menu Slide Animation */
+.mobile-menu {
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), opacity 0.4s;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.mobile-menu.hiding {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Fade-in for menu buttons */
+.mobile-menu .nav-link,
+.mobile-menu .theme-toggle {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.mobile-menu.active .nav-link,
+.mobile-menu.active .theme-toggle {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+/* Staggered fade for each button */
+.mobile-menu.active .nav-link:nth-child(2) { transition-delay: 0.25s; }
+.mobile-menu.active .nav-link:nth-child(3) { transition-delay: 0.3s; }
+.mobile-menu.active .nav-link:nth-child(4) { transition-delay: 0.35s; }
+.mobile-menu.active .nav-link:nth-child(5) { transition-delay: 0.4s; }
+.mobile-menu.active .nav-link:nth-child(6) { transition-delay: 0.45s; }
+.mobile-menu.active .theme-toggle { transition-delay: 0.5s; }
+  

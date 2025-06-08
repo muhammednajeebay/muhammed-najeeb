@@ -39,17 +39,48 @@ if (mobileThemeToggle) {
 }
 
 // Mobile Menu
-const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-const mobileMenuCloseBtn = document.querySelector(".mobile-menu-close");
-const mobileMenu = document.querySelector(".mobile-menu");
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const mobileMenuClose = document.querySelector('.mobile-menu-close');
 const mobileMenuLinks = document.querySelectorAll(".mobile-menu .nav-link");
 
-mobileMenuBtn.addEventListener("click", () => {
-  mobileMenu.classList.add("active");
+// Open mobile menu
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent background scroll
 });
 
-mobileMenuCloseBtn.addEventListener("click", () => {
-  mobileMenu.classList.remove("active");
+// Close mobile menu
+function closeMobileMenu() {
+  if (mobileMenu.classList.contains('active')) {
+    mobileMenu.classList.remove('active');
+    mobileMenu.classList.add('hiding');
+    document.body.style.overflow = '';
+    // Wait for the transition to finish before removing .hiding
+    setTimeout(() => {
+      mobileMenu.classList.remove('hiding');
+    }, 400); // Match your CSS transition duration (0.4s)
+  }
+}
+
+mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+// Close on outside click
+document.addEventListener('mousedown', function(event) {
+  if (
+    mobileMenu.classList.contains('active') &&
+    !mobileMenu.contains(event.target) &&
+    !mobileMenuBtn.contains(event.target)
+  ) {
+    closeMobileMenu();
+  }
+});
+
+// Optionally, close on ESC key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+    closeMobileMenu();
+  }
 });
 
 mobileMenuLinks.forEach((link) => {
@@ -101,7 +132,7 @@ function createFlutterIcons() {
   bgAnimation.innerHTML = "";
 
   // Flutter Logo SVGs
-  const flutterIconCount = 10;
+  const flutterIconCount = 25;
   for (let i = 0; i < flutterIconCount; i++) {
     const flutterIcon = document.createElement("div");
     flutterIcon.className = "flutter-icon";
@@ -133,7 +164,7 @@ function createFlutterIcons() {
   }
 
   // Material Design Icons
-  const materialIconCount = 15;
+  const materialIconCount = 25;
   const materialIcons = [
     "widgets",
     "code",
@@ -272,7 +303,7 @@ document.addEventListener("mousemove", (e) => {
     });
   };
 
-  moveElements(flutterIcons, 1);
+  moveElements(flutterIcons, 1.5);
   moveElements(materialIcons, 1.5);
 });
 
@@ -465,5 +496,12 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
       snackbar.classList.remove('show');
     }, 3000);
+  }
+});
+
+mobileMenu.addEventListener('transitionend', (e) => {
+  if (mobileMenu.classList.contains('hiding')) {
+    mobileMenu.classList.remove('hiding');
+    // Optionally hide the menu here
   }
 });
