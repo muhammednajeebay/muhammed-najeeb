@@ -1,590 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
-    <title>Muhammed Najeeb | Flutter Developer</title>
-    <meta name="title" content="Muhammed Najeeb | Flutter Developer" />
-    <meta name="description" content="Portfolio of Muhammed Najeeb, a Flutter Developer passionate about building efficient and scalable mobile apps." />
-    <meta name="keywords" content="Flutter, Dart, Mobile Developer, Muhammed Najeeb, Portfolio, App Developer">
-    <meta name="author" content="Muhammed Najeeb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://najeebay.netlify.app/" />
-    <meta property="og:title" content="Muhammed Najeeb | Flutter Developer" />
-    <meta property="og:description" content="Portfolio of Muhammed Najeeb, a Flutter Developer passionate about building efficient and scalable mobile apps." />
-    <meta property="og:image" content="https://drive.google.com/file/d/1hgna6jWQN_MhbO34A_f3WR67fvh_2GbV/view?usp=sharing" />
+  <!-- Primary Meta Tags -->
+  <title>Muhammed Najeeb | Flutter Developer</title>
+  <meta name="title" content="Muhammed Najeeb | Flutter Developer" />
+  <meta name="description"
+    content="Portfolio of Muhammed Najeeb, a Flutter Developer passionate about building efficient and scalable mobile apps." />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://najeebay.netlify.app/" />
-    <meta property="twitter:title" content="Muhammed Najeeb | Flutter Developer" />
-    <meta property="twitter:description" content="Portfolio of Muhammed Najeeb, a Flutter Developer passionate about building efficient and scalable mobile apps." />
-    <meta property="twitter:image" content="https://drive.google.com/file/d/1hgna6jWQN_MhbO34A_f3WR67fvh_2GbV/view?usp=sharing" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://najeebay.netlify.app/" />
+  <meta property="og:title" content="Muhammed Najeeb | Flutter Developer" />
+  <meta property="og:description"
+    content="Portfolio of Muhammed Najeeb, a Flutter Developer passionate about building efficient and scalable mobile apps." />
+  <meta property="og:image" content="https://najeebay.netlify.app/assets/preview.png" />
 
-    <!-- Meta Tags Generated with https://metatags.io -->
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://najeebay.netlify.app/" />
+  <meta property="twitter:title" content="Muhammed Najeeb | Flutter Developer" />
+  <meta property="twitter:description"
+    content="Portfolio of Muhammed Najeeb, a Flutter Developer passionate about building efficient and scalable mobile apps." />
+  <meta property="twitter:image" content="https://najeebay.netlify.app/assets/preview.png" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon" />
-  </head>
+  <!-- Meta Tags Generated with https://metatags.io -->
 
-  <body>
-    <!-- Cursor Follower -->
-    <div class="cursor-follower"></div>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="icon" href="path/to/favicon.ico" type="image/x-icon" />
+</head>
 
-    <!-- Invert Circle -->
-    <div class="invert-circle"></div>
+<body>
+  <!-- Cursor Follower -->
+  <div class="cursor-follower"></div>
 
-    <!-- Background Animation -->
-    <div class="bg-animation" id="bg-animation"></div>
+  <!-- Invert Circle -->
+  <div class="invert-circle"></div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <button class="mobile-menu-close">
-        <span class="material-icons">close</span>
-      </button>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#experience" class="nav-link">Experience</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#contact" class="nav-link">Contact</a>
-      <button class="theme-toggle mobile-theme-toggle">
-        <span class="material-icons">dark_mode</span>
-      </button>
+  <!-- Background Animation -->
+  <div class="bg-animation" id="bg-animation"></div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <button class="mobile-menu-close">
+      <span class="material-icons">close</span>
+    </button>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#experience" class="nav-link">Experience</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <button class="theme-toggle mobile-theme-toggle">
+      <span class="material-icons">dark_mode</span>
+    </button>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14.59 7.41L18.17 11H6v2h12.17l-3.59 3.59L16 18l6-6-6-6-1.41 1.41zM2 6v12h2V6H2z" />
+          </svg>
+          MN.
+        </div>
+        <nav class="nav-links">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle">
+          <span class="material-icons theme-icon">dark_mode</span>
+        </button>
+        <button class="mobile-menu-btn">
+          <span class="material-icons">menu</span>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <!-- Header -->
-    <header>
-      <div class="container">
-        <div class="header-content">
-          <div class="logo">
-            <svg
-              class="logo-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                d="M14.59 7.41L18.17 11H6v2h12.17l-3.59 3.59L16 18l6-6-6-6-1.41 1.41zM2 6v12h2V6H2z"
-              />
-            </svg>
-            MN.
-          </div>
-          <nav class="nav-links">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#experience" class="nav-link">Experience</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link">Contact</a>
-          </nav>
-          <button class="theme-toggle" id="theme-toggle">
-            <span class="material-icons theme-icon">dark_mode</span>
-          </button>
-          <button class="mobile-menu-btn">
-            <span class="material-icons">menu</span>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <p class="hero-subtitle">Hi, my name is</p>
-          <h1 class="hero-title">Muhammed Najeeb.</h1>
-          <h2 class="hero-title" style="color: rgba(230, 241, 255, 0.7)">
-            I build things for mobile.
-          </h2>
-          <p class="hero-description">
-            I'm a Flutter developer specializing in building exceptional digital
-            experiences for mobile platforms.
-          </p>
-          <a href="#contact" class="cta-button">
-            <span
-              class="material-icons-outlined"
-              style="font-size: 1rem; margin-right: 0.5rem"
-              >send</span
-            >
-            Get In Touch
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-      <div class="container">
-        <h2 class="section-title fade-in">About Me</h2>
-        <div class="about-content">
-          <div class="about-text fade-in">
-            <p>
-              Hello! I'm Muhammed Najeeb, a passionate Flutter developer with
-              experience in building mobile applications. I enjoy creating
-              software that solves real-world problems and delivers exceptional
-              user experiences.
-            </p>
-            <p>
-              My journey in mobile development started with Flutter, and I've
-              been continuously expanding my skills in this framework. I'm
-              particularly interested in clean architecture, state management,
-              and creating responsive and intuitive user interfaces.
-            </p>
-            <p>
-              I'm always looking to learn new technologies and improve my
-              skills. Currently, I'm focused on mastering advanced Flutter
-              concepts and exploring new ways to create efficient and scalable
-              mobile applications.
-            </p>
-          </div>
-          <div class="about-image fade-in">
-            <div class="about-image-wrapper">
-              <svg
-                viewBox="0 0 200 200"
-                xmlns="http://www.w3.org/2000/svg"
-                style="width: 100%; height: auto"
-              >
-                <path
-                  fill="#64FFDA"
-                  d="M47.7,-57.2C59.5,-45.8,65.8,-29.6,68.2,-13.1C70.6,3.4,69.1,20.1,61.1,33.4C53.1,46.7,38.6,56.5,22.8,61.3C7,66.1,-10.2,65.8,-24.7,59.9C-39.3,54,-51.3,42.5,-58.9,28.3C-66.5,14.1,-69.8,-2.8,-65.2,-17.9C-60.7,-32.9,-48.3,-46.1,-34.7,-56.8C-21.1,-67.5,-6.3,-75.7,7.8,-74.4C21.9,-73.1,35.9,-68.5,47.7,-57.2Z"
-                  transform="translate(100 100)"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section - Simplified -->
-    <section class="skills" id="skills">
-      <div class="container">
-        <h2 class="section-title fade-in">My Skills</h2>
-
-        <!-- Skills Tags -->
-        <div class="skills-container">
-          <div class="skill-tag fade-in">
-            <span class="material-icons">flutter_dash</span>
-            Flutter
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">code</span>
-            Dart
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">architecture</span>
-            Clean Architecture
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">layers</span>
-            State Management
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">api</span>
-            REST APIs
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">cloud</span>
-            Firebase
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">design_services</span>
-            UI/UX Design
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">devices</span>
-            Responsive Design
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">animation</span>
-            Animations
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">integration_instructions</span>
-            GraphQL
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">storage</span>
-            Local Storage
-          </div>
-          <div class="skill-tag fade-in">
-            <span class="material-icons">build</span>
-            CI/CD
-          </div>
-        </div>
-
-        <!-- Skill Categories -->
-        <div class="skill-categories">
-          <!-- Development Category -->
-          <div class="skill-category fade-in">
-            <h3 class="category-title">
-              <span class="material-icons">code</span>
-              Development
-            </h3>
-            <div class="skills-grid">
-              <div class="skill-item">Flutter</div>
-              <div class="skill-item">Dart</div>
-              <div class="skill-item">GetX</div>
-              <div class="skill-item">Provider</div>
-            </div>
-          </div>
-
-          <!-- Architecture Category -->
-          <div class="skill-category fade-in">
-            <h3 class="category-title">
-              <span class="material-icons">architecture</span>
-              Architecture
-            </h3>
-            <div class="skills-grid">
-              <div class="skill-item">Clean Architecture</div>
-              <div class="skill-item">MVVM Pattern</div>
-            </div>
-          </div>
-
-          <!-- Integration Category -->
-          <div class="skill-category fade-in">
-            <h3 class="category-title">
-              <span class="material-icons">cloud</span>
-              Integration
-            </h3>
-            <div class="skills-grid">
-              <div class="skill-item">REST APIs</div>
-              <div class="skill-item">GraphQL</div>
-              <div class="skill-item">Firebase</div>
-              <div class="skill-item">WebSockets</div>
-              <div class="skill-item">Local Storage</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-      <div class="container">
-        <h2 class="section-title fade-in">Where I've Worked</h2>
-        <div class="experience-tabs">
-          <button class="tab-button active fade-in" data-tab="tab1">
-            NEXTEONS
-          </button>
-          <button class="tab-button fade-in" data-tab="tab2">Luminar</button>
-        </div>
-        <div class="tab-content active" id="tab1">
-          <h3 class="job-title">Flutter Developer</h3>
-          <p class="job-company">NEXTEONS Software Solutions</p>
-          <p class="job-duration">May 2024 - Present</p>
-          <div class="job-description">
-            <ul>
-              <li>
-                Contributed to the development of ERP software, a solution
-                designed for inventory, sales, and purchase management that
-                guarantees both scalability and efficiency.
-              </li>
-              <li>
-                Implemented Custom Clean Architecture for scalable, maintainable
-                code.
-              </li>
-              <li>Used GetX for state management.</li>
-              <li>Used GoRouter for routing.</li>
-              <li>Built a scalable and maintainable architecture.</li>
-              <li>Debugged and resolved complex issues effectively.</li>
-              <li>Backend Integration done Using GraphQL.</li>
-              <li>
-                Used Git for efficient code management and team collaboration.
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="tab-content" id="tab2">
-          <h3 class="job-title">Flutter Developer Intern</h3>
-          <p class="job-company">Luminar TechnoHub</p>
-          <p class="job-duration">November 2023 - May 2024</p>
-          <div class="job-description">
-            <ul>
-              <li>
-                Collaborated with a dynamic Flutter development team in the
-                creation and maintenance of essential applications for Luminar
-                TechnoHub.
-              </li>
-              <li>
-                Engaged in knowledge sharing on Flutter development best
-                practices.
-              </li>
-              <li>Implemented Custom Clean Architecture for scalable code.</li>
-              <li>Collaborated to optimize API calls for responsiveness.</li>
-              <li>
-                Demonstrated strong problem-solving skills for critical issues.
-              </li>
-              <li>
-                Utilized Git for effective code management and team
-                collaboration.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section - Enhanced Animation -->
-    <section class="projects" id="projects">
-      <div class="container">
-        <h2 class="section-title fade-in">Some Things I've Built</h2>
-        <div class="projects-grid">
-          <!-- Project 1: YUMMLY -->
-          <div class="project-card">
-            <div class="project-top">
-              <span class="material-icons folder-icon">folder</span>
-            </div>
-            <h3 class="project-title">YUMMLY</h3>
-            <p class="project-description">
-              Recipe Recommendation App with Python backend
-            </p>
-            <div class="project-features">
-              <ul>
-                <li>User-friendly interface for seamless experience</li>
-                <li>Popular recipes showcase</li>
-                <li>User recipe upload functionality</li>
-                <li>Recipe bookmarking system</li>
-                <li>API integration using Http</li>
-              </ul>
-            </div>
-            <div class="project-tech">
-              <div class="material-chip">Flutter</div>
-              <div class="material-chip">Provider</div>
-              <div class="material-chip">Python Backend</div>
-              <div class="material-chip">Http</div>
-            </div>
-          </div>
-
-          <!-- Project 2: DIGIBANK -->
-          <div class="project-card">
-            <div class="project-top">
-              <span class="material-icons folder-icon">folder</span>
-            </div>
-            <h3 class="project-title">DIGIBANK</h3>
-            <p class="project-description">
-              Banking Application Clone with seamless financial services
-            </p>
-            <div class="project-features">
-              <ul>
-                <li>Account overview with balance and transaction details</li>
-                <li>Detailed transaction history tracking</li>
-                <li>Custom clean architecture implementation</li>
-                <li>API integration using Http</li>
-                <li>State management using Provider</li>
-              </ul>
-            </div>
-            <div class="project-tech">
-              <div class="material-chip">Flutter</div>
-              <div class="material-chip">Provider</div>
-              <div class="material-chip">Clean Architecture</div>
-              <div class="material-chip">Http</div>
-            </div>
-          </div>
-
-          <!-- Project 3: Placement Assistance App -->
-          <div class="project-card">
-            <div class="project-top">
-              <span class="material-icons folder-icon">folder</span>
-            </div>
-            <h3 class="project-title">Placement Assistance App</h3>
-            <p class="project-description">
-              Platform connecting companies, students, and administrators
-            </p>
-            <div class="project-features">
-              <ul>
-                <li>Company job posting functionality</li>
-                <li>Student application system</li>
-                <li>Admin monitoring dashboard</li>
-                <li>State management using Provider</li>
-              </ul>
-            </div>
-            <div class="project-tech">
-              <div class="material-chip">Flutter</div>
-              <div class="material-chip">Provider</div>
-              <div class="material-chip">Firebase</div>
-            </div>
-          </div>
-
-          <!-- Project 4: News Hunt -->
-          <div class="project-card">
-            <div class="project-top">
-              <span class="material-icons folder-icon">folder</span>
-            </div>
-            <h3 class="project-title">News Hunt</h3>
-            <p class="project-description">
-              Up-to-date news article aggregator application
-            </p>
-            <div class="project-features">
-              <ul>
-                <li>Real-time news fetching from newsapi.org</li>
-                <li>Categorized news browsing</li>
-                <li>State management using Provider</li>
-                <li>Responsive article layout</li>
-              </ul>
-            </div>
-            <div class="project-tech">
-              <div class="material-chip">Flutter</div>
-              <div class="material-chip">Provider</div>
-              <div class="material-chip">News API</div>
-            </div>
-          </div>
-
-          <!-- Project 5: Quiz App -->
-          <div class="project-card">
-            <div class="project-top">
-              <span class="material-icons folder-icon">folder</span>
-            </div>
-            <h3 class="project-title">Quiz App</h3>
-            <p class="project-description">
-              Self-assessment knowledge testing application
-            </p>
-            <div class="project-features">
-              <ul>
-                <li>Dynamic quiz content fetched from API</li>
-                <li>Interactive quiz interface</li>
-                <li>Score tracking and results</li>
-                <li>State management using Provider</li>
-              </ul>
-            </div>
-            <div class="project-tech">
-              <div class="material-chip">Flutter</div>
-              <div class="material-chip">Provider</div>
-              <div class="material-chip">Http</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-      <div class="container contact-container">
-        <div class="contact-right">
-          <p class="contact-subtitle fade-in">What's Next?</p>
-          <h2 class="contact-title fade-in">Get In Touch</h2>
-          <p class="contact-text fade-in">
-            I'm currently looking for new opportunities. Whether you have a
-            question or just want to say hi, I'll try my best to get back to you!
-          </p>
-          <form class="contact-form fade-in" action="https://formspree.io/f/manjwzye" method="POST">
-            <div class="form-group">
-              <label for="name">Name <span>*</span></label>
-              <input type="text" id="name" name="name" placeholder="Your name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email <span>*</span></label>
-              <input type="email" id="email" name="email" placeholder="Your email" required />
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject <span>*</span></label>
-              <input type="text" id="subject" name="subject" placeholder="Subject" required />
-            </div>
-            <div class="form-group">
-              <label for="message">Message <span>*</span></label>
-              <textarea id="message" name="message" placeholder="Your message" required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </section>
-    
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="social-links">
-          <a
-            href="https://github.com/najeebnaju512"
-            class="social-link"
-            target="_blank"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/muhammednajeebay"
-            class="social-link"
-            target="_blank"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-              ></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-          <a href="mailto:najeebnaju512@gmail.com" class="social-link">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-              ></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-          </a>
-        </div>
-        <p class="footer-text">
-          Designed & Built by <a href="#">Muhammed Najeeb A Y</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-subtitle">Hi, my name is</p>
+        <h1 class="hero-title">Muhammed Najeeb.</h1>
+        <h2 class="hero-title" style="color: rgba(230, 241, 255, 0.7)">
+          I build things for mobile.
+        </h2>
+        <p class="hero-description">
+          I'm a Flutter developer specializing in building exceptional digital
+          experiences for mobile platforms.
         </p>
+        <a href="#contact" class="cta-button">
+          <span class="material-icons-outlined" style="font-size: 1rem; margin-right: 0.5rem">send</span>
+          Get In Touch
+        </a>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <div id="snackbar" class="snackbar">Message sent successfully!</div>
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title fade-in">About Me</h2>
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <p>
+            Hello! I'm Muhammed Najeeb, a passionate Flutter developer with
+            experience in building mobile applications. I enjoy creating
+            software that solves real-world problems and delivers exceptional
+            user experiences.
+          </p>
+          <p>
+            My journey in mobile development started with Flutter, and I've
+            been continuously expanding my skills in this framework. I'm
+            particularly interested in clean architecture, state management,
+            and creating responsive and intuitive user interfaces.
+          </p>
+          <p>
+            I'm always looking to learn new technologies and improve my
+            skills. Currently, I'm focused on mastering advanced Flutter
+            concepts and exploring new ways to create efficient and scalable
+            mobile applications.
+          </p>
+        </div>
+        <div class="about-image fade-in">
+          <div class="about-image-wrapper">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto">
+              <path fill="#64FFDA"
+                d="M47.7,-57.2C59.5,-45.8,65.8,-29.6,68.2,-13.1C70.6,3.4,69.1,20.1,61.1,33.4C53.1,46.7,38.6,56.5,22.8,61.3C7,66.1,-10.2,65.8,-24.7,59.9C-39.3,54,-51.3,42.5,-58.9,28.3C-66.5,14.1,-69.8,-2.8,-65.2,-17.9C-60.7,-32.9,-48.3,-46.1,-34.7,-56.8C-21.1,-67.5,-6.3,-75.7,7.8,-74.4C21.9,-73.1,35.9,-68.5,47.7,-57.2Z"
+                transform="translate(100 100)" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script/script.js"></script>
-  </body>
+  <!-- Skills Section - Simplified -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <h2 class="section-title fade-in">My Skills</h2>
+
+      <!-- Skills Tags -->
+      <div class="skills-container">
+        <div class="skill-tag fade-in">
+          <span class="material-icons">flutter_dash</span>
+          Flutter
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">code</span>
+          Dart
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">architecture</span>
+          Clean Architecture
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">layers</span>
+          State Management
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">api</span>
+          REST APIs
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">cloud</span>
+          Firebase
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">design_services</span>
+          UI/UX Design
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">devices</span>
+          Responsive Design
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">animation</span>
+          Animations
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">integration_instructions</span>
+          GraphQL
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">storage</span>
+          Local Storage
+        </div>
+        <div class="skill-tag fade-in">
+          <span class="material-icons">build</span>
+          CI/CD
+        </div>
+      </div>
+
+      <!-- Skill Categories -->
+      <div class="skill-categories">
+        <!-- Development Category -->
+        <div class="skill-category fade-in">
+          <h3 class="category-title">
+            <span class="material-icons">code</span>
+            Development
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-item">Flutter</div>
+            <div class="skill-item">Dart</div>
+            <div class="skill-item">GetX</div>
+            <div class="skill-item">Provider</div>
+          </div>
+        </div>
+
+        <!-- Architecture Category -->
+        <div class="skill-category fade-in">
+          <h3 class="category-title">
+            <span class="material-icons">architecture</span>
+            Architecture
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-item">Clean Architecture</div>
+            <div class="skill-item">MVVM Pattern</div>
+          </div>
+        </div>
+
+        <!-- Integration Category -->
+        <div class="skill-category fade-in">
+          <h3 class="category-title">
+            <span class="material-icons">cloud</span>
+            Integration
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-item">REST APIs</div>
+            <div class="skill-item">GraphQL</div>
+            <div class="skill-item">Firebase</div>
+            <div class="skill-item">WebSockets</div>
+            <div class="skill-item">Local Storage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience" id="experience">
+    <div class="container">
+      <h2 class="section-title fade-in">Where I've Worked</h2>
+      <div class="experience-tabs">
+        <button class="tab-button active fade-in" data-tab="tab1">
+          NEXTEONS
+        </button>
+        <button class="tab-button fade-in" data-tab="tab2">Luminar</button>
+      </div>
+      <div class="tab-content active" id="tab1">
+        <h3 class="job-title">Flutter Developer</h3>
+        <p class="job-company">NEXTEONS Software Solutions</p>
+        <p class="job-duration">May 2024 - Present</p>
+        <div class="job-description">
+          <ul>
+            <li>
+              Contributed to the development of ERP software, a solution
+              designed for inventory, sales, and purchase management that
+              guarantees both scalability and efficiency.
+            </li>
+            <li>
+              Implemented Custom Clean Architecture for scalable, maintainable
+              code.
+            </li>
+            <li>Used GetX for state management.</li>
+            <li>Used GoRouter for routing.</li>
+            <li>Built a scalable and maintainable architecture.</li>
+            <li>Debugged and resolved complex issues effectively.</li>
+            <li>Backend Integration done Using GraphQL.</li>
+            <li>
+              Used Git for efficient code management and team collaboration.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-content" id="tab2">
+        <h3 class="job-title">Flutter Developer Intern</h3>
+        <p class="job-company">Luminar TechnoHub</p>
+        <p class="job-duration">November 2023 - May 2024</p>
+        <div class="job-description">
+          <ul>
+            <li>
+              Collaborated with a dynamic Flutter development team in the
+              creation and maintenance of essential applications for Luminar
+              TechnoHub.
+            </li>
+            <li>
+              Engaged in knowledge sharing on Flutter development best
+              practices.
+            </li>
+            <li>Implemented Custom Clean Architecture for scalable code.</li>
+            <li>Collaborated to optimize API calls for responsiveness.</li>
+            <li>
+              Demonstrated strong problem-solving skills for critical issues.
+            </li>
+            <li>
+              Utilized Git for effective code management and team
+              collaboration.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section - Enhanced Animation -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <h2 class="section-title fade-in">Some Things I've Built</h2>
+      <div class="projects-grid">
+        <!-- Project 1: YUMMLY -->
+        <div class="project-card">
+          <div class="project-top">
+            <span class="material-icons folder-icon">folder</span>
+          </div>
+          <h3 class="project-title">YUMMLY</h3>
+          <p class="project-description">
+            Recipe Recommendation App with Python backend
+          </p>
+          <div class="project-features">
+            <ul>
+              <li>User-friendly interface for seamless experience</li>
+              <li>Popular recipes showcase</li>
+              <li>User recipe upload functionality</li>
+              <li>Recipe bookmarking system</li>
+              <li>API integration using Http</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <div class="material-chip">Flutter</div>
+            <div class="material-chip">Provider</div>
+            <div class="material-chip">Python Backend</div>
+            <div class="material-chip">Http</div>
+          </div>
+        </div>
+
+        <!-- Project 2: DIGIBANK -->
+        <div class="project-card">
+          <div class="project-top">
+            <span class="material-icons folder-icon">folder</span>
+          </div>
+          <h3 class="project-title">DIGIBANK</h3>
+          <p class="project-description">
+            Banking Application Clone with seamless financial services
+          </p>
+          <div class="project-features">
+            <ul>
+              <li>Account overview with balance and transaction details</li>
+              <li>Detailed transaction history tracking</li>
+              <li>Custom clean architecture implementation</li>
+              <li>API integration using Http</li>
+              <li>State management using Provider</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <div class="material-chip">Flutter</div>
+            <div class="material-chip">Provider</div>
+            <div class="material-chip">Clean Architecture</div>
+            <div class="material-chip">Http</div>
+          </div>
+        </div>
+
+        <!-- Project 3: Placement Assistance App -->
+        <div class="project-card">
+          <div class="project-top">
+            <span class="material-icons folder-icon">folder</span>
+          </div>
+          <h3 class="project-title">Placement Assistance App</h3>
+          <p class="project-description">
+            Platform connecting companies, students, and administrators
+          </p>
+          <div class="project-features">
+            <ul>
+              <li>Company job posting functionality</li>
+              <li>Student application system</li>
+              <li>Admin monitoring dashboard</li>
+              <li>State management using Provider</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <div class="material-chip">Flutter</div>
+            <div class="material-chip">Provider</div>
+            <div class="material-chip">Firebase</div>
+          </div>
+        </div>
+
+        <!-- Project 4: News Hunt -->
+        <div class="project-card">
+          <div class="project-top">
+            <span class="material-icons folder-icon">folder</span>
+          </div>
+          <h3 class="project-title">News Hunt</h3>
+          <p class="project-description">
+            Up-to-date news article aggregator application
+          </p>
+          <div class="project-features">
+            <ul>
+              <li>Real-time news fetching from newsapi.org</li>
+              <li>Categorized news browsing</li>
+              <li>State management using Provider</li>
+              <li>Responsive article layout</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <div class="material-chip">Flutter</div>
+            <div class="material-chip">Provider</div>
+            <div class="material-chip">News API</div>
+          </div>
+        </div>
+
+        <!-- Project 5: Quiz App -->
+        <div class="project-card">
+          <div class="project-top">
+            <span class="material-icons folder-icon">folder</span>
+          </div>
+          <h3 class="project-title">Quiz App</h3>
+          <p class="project-description">
+            Self-assessment knowledge testing application
+          </p>
+          <div class="project-features">
+            <ul>
+              <li>Dynamic quiz content fetched from API</li>
+              <li>Interactive quiz interface</li>
+              <li>Score tracking and results</li>
+              <li>State management using Provider</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <div class="material-chip">Flutter</div>
+            <div class="material-chip">Provider</div>
+            <div class="material-chip">Http</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-container">
+      <div class="contact-right">
+        <p class="contact-subtitle fade-in">What's Next?</p>
+        <h2 class="contact-title fade-in">Get In Touch</h2>
+        <p class="contact-text fade-in">
+          I'm currently looking for new opportunities. Whether you have a
+          question or just want to say hi, I'll try my best to get back to you!
+        </p>
+        <form class="contact-form fade-in" action="https://formspree.io/f/manjwzye" method="POST">
+          <div class="form-group">
+            <label for="name">Name <span>*</span></label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span>*</span></label>
+            <input type="email" id="email" name="email" placeholder="Your email" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject <span>*</span></label>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message <span>*</span></label>
+            <textarea id="message" name="message" placeholder="Your message" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://github.com/najeebnaju512" class="social-link" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+            </path>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/muhammednajeebay" class="social-link" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="mailto:najeebnaju512@gmail.com" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+      </div>
+      <p class="footer-text">
+        Designed & Built by <a href="#">Muhammed Najeeb A Y</a>
+      </p>
+    </div>
+  </footer>
+
+  <div id="snackbar" class="snackbar">Message sent successfully!</div>
+
+  <script src="script/script.js"></script>
+</body>
+
 </html>
