@@ -39,36 +39,36 @@ if (mobileThemeToggle) {
 }
 
 // Mobile Menu
-const mobileMenu = document.querySelector('.mobile-menu');
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileMenuClose = document.querySelector('.mobile-menu-close');
+const mobileMenu = document.querySelector(".mobile-menu");
+const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+const mobileMenuClose = document.querySelector(".mobile-menu-close");
 const mobileMenuLinks = document.querySelectorAll(".mobile-menu .nav-link");
 
 // Open mobile menu
-mobileMenuBtn.addEventListener('click', () => {
-  mobileMenu.classList.add('active');
-  document.body.style.overflow = 'hidden'; // Prevent background scroll
+mobileMenuBtn.addEventListener("click", () => {
+  mobileMenu.classList.add("active");
+  document.body.style.overflow = "hidden"; // Prevent background scroll
 });
 
 // Close mobile menu
 function closeMobileMenu() {
-  if (mobileMenu.classList.contains('active')) {
-    mobileMenu.classList.remove('active');
-    mobileMenu.classList.add('hiding');
-    document.body.style.overflow = '';
+  if (mobileMenu.classList.contains("active")) {
+    mobileMenu.classList.remove("active");
+    mobileMenu.classList.add("hiding");
+    document.body.style.overflow = "";
     // Wait for the transition to finish before removing .hiding
     setTimeout(() => {
-      mobileMenu.classList.remove('hiding');
+      mobileMenu.classList.remove("hiding");
     }, 400); // Match your CSS transition duration (0.4s)
   }
 }
 
-mobileMenuClose.addEventListener('click', closeMobileMenu);
+mobileMenuClose.addEventListener("click", closeMobileMenu);
 
 // Close on outside click
-document.addEventListener('mousedown', function(event) {
+document.addEventListener("mousedown", function (event) {
   if (
-    mobileMenu.classList.contains('active') &&
+    mobileMenu.classList.contains("active") &&
     !mobileMenu.contains(event.target) &&
     !mobileMenuBtn.contains(event.target)
   ) {
@@ -77,8 +77,8 @@ document.addEventListener('mousedown', function(event) {
 });
 
 // Optionally, close on ESC key
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
     closeMobileMenu();
   }
 });
@@ -459,49 +459,63 @@ const skillsObserver = new IntersectionObserver(
 
 skillsObserver.observe(skillsSection);
 
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.querySelector('.contact-form');
-  const snackbar = document.getElementById('snackbar');
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".contact-form");
+  const snackbar = document.getElementById("snackbar");
 
   if (form) {
-    form.addEventListener('submit', function (e) {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
 
       const formData = new FormData(form);
 
       fetch(form.action, {
-        method: 'POST',
+        method: "POST",
         body: formData,
         headers: {
-          'Accept': 'application/json'
-        }
+          Accept: "application/json",
+        },
       })
-      .then(response => {
-        if (response.ok) {
-          showSnackbar("Message sent successfully!");
-          form.reset();
-        } else {
+        .then((response) => {
+          if (response.ok) {
+            showSnackbar("Message sent successfully!");
+            form.reset();
+          } else {
+            showSnackbar("Something went wrong. Please try again.");
+          }
+        })
+        .catch(() => {
           showSnackbar("Something went wrong. Please try again.");
-        }
-      })
-      .catch(() => {
-        showSnackbar("Something went wrong. Please try again.");
-      });
+        });
     });
   }
 
   function showSnackbar(message) {
     snackbar.textContent = message;
-    snackbar.classList.add('show');
+    snackbar.classList.add("show");
     setTimeout(function () {
-      snackbar.classList.remove('show');
+      snackbar.classList.remove("show");
     }, 3000);
   }
 });
 
-mobileMenu.addEventListener('transitionend', (e) => {
-  if (mobileMenu.classList.contains('hiding')) {
-    mobileMenu.classList.remove('hiding');
+mobileMenu.addEventListener("transitionend", (e) => {
+  if (mobileMenu.classList.contains("hiding")) {
+    mobileMenu.classList.remove("hiding");
     // Optionally hide the menu here
   }
+});
+
+const allPaths = document.querySelectorAll("path");
+
+allPaths.forEach((path) => {
+  const length = path.getTotalLength();
+
+  path.style.strokeDasharray = length;
+  path.style.strokeDashoffset = length;
+
+  path.getBoundingClientRect();
+
+  path.style.transition = "stroke-dashoffset 3s ease-in-out";
+  path.style.strokeDashoffset = "0";
 });
