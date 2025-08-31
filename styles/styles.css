@@ -121,6 +121,59 @@ header {
     align-items: center;
 }
 
+/* Responsive Hero Section - Updated */
+@media (max-width: 992px) {
+    .hero .container {
+      grid-template-columns: 1fr; /* Stack on mobile */
+      gap: 2rem;
+      text-align: center;
+      padding-top: 5rem; /* Add 5rem spacing from top */
+    }
+    
+    .hero-image {
+      order: -1; /* Show image above text on mobile */
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .hero-image svg {
+      max-width: 300px;
+    }
+    
+    /* Remove border on mobile */
+    .hero-image-wrapper::after {
+      display: none;
+    }
+    
+    /* Center hero content below SVG */
+    .hero-content {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      order: 1; /* Ensure content appears below SVG */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero .container {
+      padding-top: 3rem; /* Slightly less spacing on very small screens */
+    }
+    
+    .hero-image svg {
+      max-width: 250px;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem; /* Smaller title on mobile */
+    }
+    
+    .hero-description {
+      font-size: 1.2rem; /* Smaller description on mobile */
+    }
+  }
+
 .logo {
     font-family: 'Silkscreen', cursive;
     font-size: 1.5rem;
