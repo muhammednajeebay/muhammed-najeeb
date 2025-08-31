@@ -131,8 +131,11 @@ const bgAnimation = document.getElementById("bg-animation");
 function createFlutterIcons() {
   bgAnimation.innerHTML = "";
 
-  // Flutter Logo SVGs
-  const flutterIconCount = 25;
+  // Responsive SVG count based on screen size
+  const isMobile = window.innerWidth <= 768; // Mobile breakpoint
+  const flutterIconCount = isMobile ? 15 : 25; // 15 on mobile, 25 on desktop
+  const materialIconCount = isMobile ? 15 : 25; // 15 on mobile, 25 on desktop
+
   for (let i = 0; i < flutterIconCount; i++) {
     const flutterIcon = document.createElement("div");
     flutterIcon.className = "flutter-icon";
@@ -163,8 +166,6 @@ function createFlutterIcons() {
     bgAnimation.appendChild(flutterIcon);
   }
 
-  // Material Design Icons
-  const materialIconCount = 25;
   const materialIcons = [
     "widgets",
     "code",
@@ -506,16 +507,47 @@ mobileMenu.addEventListener("transitionend", (e) => {
   }
 });
 
-const allPaths = document.querySelectorAll("path");
+const heroSvgPaths = document
+  .querySelector(".about-image-wrapper svg")
+  ?.querySelectorAll("path");
 
-allPaths.forEach((path) => {
-  const length = path.getTotalLength();
+if (heroSvgPaths) {
+  heroSvgPaths.forEach((path) => {
+    const length = path.getTotalLength();
 
-  path.style.strokeDasharray = length;
-  path.style.strokeDashoffset = length;
+    path.style.strokeDasharray = length;
+    path.style.strokeDashoffset = length;
 
-  path.getBoundingClientRect();
+    path.getBoundingClientRect();
 
-  path.style.transition = "stroke-dashoffset 3s ease-in-out";
-  path.style.strokeDashoffset = "0";
+    path.style.transition = "stroke-dashoffset 3s ease-in-out";
+    path.style.strokeDashoffset = "0";
+  });
+}
+
+function initTypingAnimation() {
+  const typingElement = document.querySelector(".typing-text");
+  if (!typingElement) return;
+
+  const text = typingElement.getAttribute("data-text");
+  const typingSpeed = 100; // milliseconds per character
+  let currentIndex = 0;
+
+  function typeNextCharacter() {
+    if (currentIndex < text.length) {
+      typingElement.textContent = text.substring(0, currentIndex + 1);
+      currentIndex++;
+      setTimeout(typeNextCharacter, typingSpeed);
+    }
+  }
+
+  // Start typing animation after a delay
+  setTimeout(() => {
+    typeNextCharacter();
+  }, 1000); // 1 second delay after page load
+}
+
+// Initialize typing animation when page loads
+document.addEventListener("DOMContentLoaded", () => {
+  initTypingAnimation();
 });

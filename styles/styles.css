@@ -203,8 +203,17 @@ header {
     overflow: hidden;
 }
 
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 4rem;
+    align-items: center;
+    height: 100%;
+}
+
 .hero-content {
-    max-width: 800px;
+    max-width: 600px;
+    width: 600px;
 }
 
 .hero-subtitle {
@@ -235,6 +244,41 @@ header {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s forwards 0.6s;
+}
+
+.typing-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.typing-cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Ensure the hero title container can handle wrapping */
+.hero-title {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+/* Ensure proper spacing */
+.typing-text {
+  min-height: 1.2em;
+  line-height: 1.2;
 }
 
 .cta-button {
@@ -276,6 +320,46 @@ header {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards 1s; /* Delayed animation */
+}
+
+.hero-image-wrapper {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.hero-image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--secondary);
+    border-radius: 4px;
+    transform: translate(20px, 20px);
+    z-index: -1;
+    transition: var(--transition);
+}
+
+.hero-image-wrapper:hover::after {
+    transform: translate(15px, 15px);
+}
+
+/* Make SVG responsive */
+.hero-image svg {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+}
+
 /* About Section */
 .about {
     padding: 8rem 0;
@@ -300,19 +384,19 @@ header {
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 4rem;
-    align-items: center;
+    display: block; 
+    max-width: 800px; 
+    margin: 0 auto;
 }
 
 .about-text {
     opacity: 0;
     transform: translateY(20px);
+    text-align: center; /* Center the text */
 }
 
 .about-text p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     line-height: 1.8;
 }
 
@@ -338,14 +422,16 @@ header {
 }
 
 .about-image {
-    position: relative;
+    position: static;
     opacity: 0;
     transform: translateY(20px);
 }
 
 .about-image-wrapper {
     position: relative;
-    border-radius: 4px;
+    padding: 10px;
+    margin: 110px;
+    border-radius: 6px;
     overflow: hidden;
 }
 
@@ -364,7 +450,7 @@ header {
 }
 
 .about-image-wrapper:hover::after {
-    transform: translate(15px, 15px);
+    transform: translate(12px, 12px);
 }
 
 /* Skills Section - Simplified */
@@ -722,40 +808,70 @@ header {
     transform: translateY(-3px);
 }
 
-/* Footer */
+/* Footer - Fixed Icon Styling */
 footer {
     padding: 2rem 0;
     text-align: center;
     opacity: 0.7;
     font-size: 0.9rem;
-}
-
-.social-links {
+  }
+  
+  .social-links {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.social-link {
+    margin-bottom: 1.5rem;
+  }
+  
+  .social-link {
     color: var(--text-dark);
-    font-size: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: var(--transition);
-}
-
-.light-mode .social-link {
+    background: none;
+    /* Remove any conflicting styles */
+  }
+  
+  .light-mode .social-link {
     color: var(--text-light);
-}
-
-.social-link:hover {
+  }
+  
+  /* Fix the SVG icons specifically */
+  .social-link svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none !important; /* Force no fill */
+    background: transparent;
+  }
+  
+  /* Ensure all child elements of footer SVGs have no fill */
+  .social-link svg * {
+    fill: none !important;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+  
+  /* Hover effect */
+  .social-link:hover {
     color: var(--secondary);
     transform: translateY(-3px);
-}
-
-.footer-text a {
+  }
+  
+  .social-link:hover svg {
+    stroke: var(--secondary);
+  }
+  
+  .footer-text {
+    margin-top: 1rem;
+  }
+  
+  .footer-text a {
     color: var(--secondary);
     text-decoration: none;
-}
+  }
 
 /* Animations */
 @keyframes fadeInUp {
@@ -1180,4 +1296,28 @@ footer {
 .mobile-menu.active .nav-link:nth-child(5) { transition-delay: 0.4s; }
 .mobile-menu.active .nav-link:nth-child(6) { transition-delay: 0.45s; }
 .mobile-menu.active .theme-toggle { transition-delay: 0.5s; }
+  
+/* Responsive Hero Section */
+@media (max-width: 992px) {
+  .hero .container {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .hero-image {
+    order: -1; /* Show image above text on mobile */
+    margin-bottom: 2rem;
+  }
+  
+  .hero-image svg {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-image svg {
+    max-width: 250px;
+  }
+}
   
