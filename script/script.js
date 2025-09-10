@@ -133,8 +133,8 @@ function createFlutterIcons() {
 
   // Responsive SVG count based on screen size
   const isMobile = window.innerWidth <= 768; // Mobile breakpoint
-  const flutterIconCount = isMobile ? 15 : 25; // 15 on mobile, 25 on desktop
-  const materialIconCount = isMobile ? 15 : 25; // 15 on mobile, 25 on desktop
+  const flutterIconCount = isMobile ? 12 : 25; // 15 on mobile, 25 on desktop
+  const materialIconCount = isMobile ? 12 : 25; // 15 on mobile, 25 on desktop
 
   for (let i = 0; i < flutterIconCount; i++) {
     const flutterIcon = document.createElement("div");
