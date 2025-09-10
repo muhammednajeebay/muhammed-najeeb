@@ -85,7 +85,7 @@ document.addEventListener("keydown", function (event) {
 
 mobileMenuLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    mobileMenu.classList.remove("active");
+    closeMobileMenu(); // Use the proper close function instead of just removing active class
   });
 });
 
