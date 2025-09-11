@@ -1,14 +1,16 @@
 :root {
     --primary: #0A192F;
-    --secondary: #64FFDA;
-    --accent: #FF9F1C;
+    --secondary-dark: #3ad2af;
+    --secondary-light: #048b6c;
+    --secondary: var(--secondary-dark);
+    --accent: #1cffff;
     --bg-dark: #0F0E17;
     --bg-light: #f0fffd;
     --text-dark: #E6F1FF;
     --text-light: #0A192F;
     --text-light-secondary: #334155;
-    --card-dark: rgba(17, 34, 64, 0.8);
-    --card-light: rgba(111, 116, 115, 0.8);
+    --card-dark: #112240cc;
+    --card-light: #c8dad7;
     --transition: all 0.3s ease;
 }
 
@@ -29,6 +31,7 @@ body {
 body.light-mode {
     background-color: var(--bg-light);
     color: var(--text-light);
+    --secondary: var(--secondary-light);
 }
 
 .container {
@@ -75,7 +78,15 @@ svg path {
     stroke: var(--secondary);
     stroke-width: 15px;
     fill: none;
+    fill-opacity: 0;
   }
+
+.light-mode svg path {
+    fill: var(--secondary);
+    fill-opacity: 0;
+    animation: svgFillReveal 1.2s ease forwards;
+    transition: fill 0.3s ease;
+}
 
 .flutter-icon {
     position: absolute;
@@ -356,11 +367,14 @@ header {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    line-height: 1;
 }
 
 .logo-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
+    color: var(--secondary);
+    display: block;
 }
 
 .nav-links {
@@ -1166,6 +1180,15 @@ footer {
     100% {
         transform: scale(1);
         opacity: 0.5;
+    }
+}
+
+@keyframes svgFillReveal {
+    from {
+        fill-opacity: 0;
+    }
+    to {
+        fill-opacity: 0.8;
     }
 }
 
