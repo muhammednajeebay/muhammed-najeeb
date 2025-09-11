@@ -704,7 +704,7 @@ header {
 
 /* Skills Section - Simplified */
 .skills {
-    padding: 8rem 0;
+    padding: 4rem 0;
     position: relative;
 }
 
@@ -1267,7 +1267,7 @@ footer {
         flex: 0 0 auto;
     }
     .mobile-menu-btn {
-        margin-left: 5;
+        margin-left: 5px;
         order: 3;
         padding: 0.5rem;
         
