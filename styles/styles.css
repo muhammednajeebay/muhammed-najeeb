@@ -1267,7 +1267,10 @@ footer {
         flex: 0 0 auto;
     }
     .mobile-menu-btn {
-        margin-left: auto;
+        margin-left: 5;
+        order: 3;
+        padding: 0.5rem;
+        
     }
     .nav-links {
         display: none;
@@ -1347,7 +1350,9 @@ footer {
     }
 
     #theme-toggle {
-        display: none !important;
+        display: inline-flex !important;
+        margin-left: auto;
+        order: 2;
     }
 }
 
