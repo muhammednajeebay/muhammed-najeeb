@@ -77,14 +77,23 @@ h1, h2, h3, h4 {
 svg path {
     stroke: var(--secondary);
     stroke-width: 15px;
-    fill: none;
-    fill-opacity: 0;
+    /* fill: none;
+    fill-opacity: 0; */
+    fill: var(--secondary);
+    fill-opacity: 0.2;
+    stroke-width: 15px;
+    animation: svgFillReveal 1.2s ease alternate-reverse;
+    animation-delay: 0.2s;
+    transition: fill 0.3s ease;
   }
 
 .light-mode svg path {
+    fill: none;
     fill: var(--secondary);
-    fill-opacity: 0;
-    animation: svgFillReveal 1.2s ease forwards;
+    fill-opacity: 0.7;
+    stroke-width: 25px;
+    animation: svgFillReveal 1.5s ease alternate;
+    animation-delay: 0.2s;
     transition: fill 0.3s ease;
 }
 
