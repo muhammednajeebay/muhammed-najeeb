@@ -89,7 +89,7 @@ svg path {
 
 .light-mode svg path {
     fill: var(--secondary);
-    fill-opacity: 0.7;
+    fill-opacity: 0.6;
     stroke-width: 25px;
     animation: svgFillReveal 1.5s ease alternate;
     animation-delay: 0.2s;

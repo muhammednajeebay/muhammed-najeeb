@@ -520,7 +520,7 @@ if (heroSvgPaths) {
 
     path.getBoundingClientRect();
 
-    path.style.transition = "stroke-dashoffset 3s ease-in-out";
+    path.style.transition = "stroke-dashoffset 8s ease-in-out";
     path.style.strokeDashoffset = "0";
   });
 }
