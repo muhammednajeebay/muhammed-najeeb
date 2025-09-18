@@ -88,7 +88,6 @@ svg path {
   }
 
 .light-mode svg path {
-    fill: none;
     fill: var(--secondary);
     fill-opacity: 0.7;
     stroke-width: 25px;
@@ -1104,12 +1103,23 @@ footer {
     fill: none !important; /* Force no fill */
     background: transparent;
   }
-  
+
   /* Ensure all child elements of footer SVGs have no fill */
   .social-link svg * {
     fill: none !important;
     stroke: currentColor;
     stroke-width: 2;
+  }
+
+  .light-mode .social-link svg path {
+    fill: none !important;
+    stroke: var(--text-light);
+    stroke-width: 2;
+    animation: none;
+  }
+
+  .light-mode .social-link:hover svg path {
+    stroke: var(--secondary);
   }
   
   /* Hover effect */
