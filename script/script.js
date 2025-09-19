@@ -16,8 +16,19 @@ function toggleTheme() {
     icon.textContent = isDarkMode ? "dark_mode" : "light_mode";
   });
 
+  // Update theme-color meta tag
+  updateThemeColor(isDarkMode);
+
   // Store theme preference
   localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+}
+
+// Function to update theme-color meta tag
+function updateThemeColor(isDarkMode) {
+  const themeColorMeta = document.getElementById("theme-color-meta");
+  if (themeColorMeta) {
+    themeColorMeta.content = isDarkMode ? "#0A192F" : "#f0fffd";
+  }
 }
 
 // Load theme preference - device default or saved preference
@@ -35,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach((icon) => {
           icon.textContent = "dark_mode";
         });
+      updateThemeColor(true);
     } else {
       // Device prefers light mode, apply light theme
       body.classList.add("light-mode");
@@ -43,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach((icon) => {
           icon.textContent = "light_mode";
         });
+      updateThemeColor(false);
     }
   } else {
     // Use saved preference
@@ -53,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach((icon) => {
           icon.textContent = "light_mode";
         });
+      updateThemeColor(false);
     } else {
       body.classList.remove("light-mode");
       document
@@ -60,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach((icon) => {
           icon.textContent = "dark_mode";
         });
+      updateThemeColor(true);
     }
   }
 });
@@ -83,6 +98,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
         .forEach((icon) => {
           icon.textContent = "dark_mode";
         });
+      updateThemeColor(true);
     } else {
       // System switched to light mode
       body.classList.add("light-mode");
@@ -91,6 +107,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
         .forEach((icon) => {
           icon.textContent = "light_mode";
         });
+      updateThemeColor(false);
     }
   }
 });
