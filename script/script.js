@@ -20,16 +20,47 @@ function toggleTheme() {
   localStorage.setItem("theme", isDarkMode ? "dark" : "light");
 }
 
-// Load saved theme preference
+// Load theme preference - device default or saved preference
 document.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") {
-    body.classList.add("light-mode");
-    document
-      .querySelectorAll(".theme-icon, .mobile-theme-toggle .material-icons")
-      .forEach((icon) => {
-        icon.textContent = "light_mode";
-      });
+  
+  // If no saved preference, use device preference
+  if (!savedTheme) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      // Device prefers dark mode, keep default (dark) theme
+      body.classList.remove("light-mode");
+      document
+        .querySelectorAll(".theme-icon, .mobile-theme-toggle .material-icons")
+        .forEach((icon) => {
+          icon.textContent = "dark_mode";
+        });
+    } else {
+      // Device prefers light mode, apply light theme
+      body.classList.add("light-mode");
+      document
+        .querySelectorAll(".theme-icon, .mobile-theme-toggle .material-icons")
+        .forEach((icon) => {
+          icon.textContent = "light_mode";
+        });
+    }
+  } else {
+    // Use saved preference
+    if (savedTheme === "light") {
+      body.classList.add("light-mode");
+      document
+        .querySelectorAll(".theme-icon, .mobile-theme-toggle .material-icons")
+        .forEach((icon) => {
+          icon.textContent = "light_mode";
+        });
+    } else {
+      body.classList.remove("light-mode");
+      document
+        .querySelectorAll(".theme-icon, .mobile-theme-toggle .material-icons")
+        .forEach((icon) => {
+          icon.textContent = "dark_mode";
+        });
+    }
   }
 });
 
@@ -37,6 +68,32 @@ themeToggle.addEventListener("click", toggleTheme);
 if (mobileThemeToggle) {
   mobileThemeToggle.addEventListener("click", toggleTheme);
 }
+
+// Listen for system theme changes (only if no user preference is saved)
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  const savedTheme = localStorage.getItem("theme");
+  
+  // Only respond to system changes if user hasn't set a preference
+  if (!savedTheme) {
+    if (e.matches) {
+      // System switched to dark mode
+      body.classList.remove("light-mode");
+      document
+        .querySelectorAll(".theme-icon, .mobile-theme-toggle .material-icons")
+        .forEach((icon) => {
+          icon.textContent = "dark_mode";
+        });
+    } else {
+      // System switched to light mode
+      body.classList.add("light-mode");
+      document
+        .querySelectorAll(".theme-icon, .mobile-theme-toggle .material-icons")
+        .forEach((icon) => {
+          icon.textContent = "light_mode";
+        });
+    }
+  }
+});
 
 // Mobile Menu
 const mobileMenu = document.querySelector(".mobile-menu");
