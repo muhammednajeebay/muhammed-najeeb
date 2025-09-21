@@ -1693,4 +1693,46 @@ footer {
   .hero .container { gap: 2rem; padding: 1rem 0.8rem; }
   .hero .about-image svg { max-width: 220px; }
 }
+
+/* Values & Goals Section */
+.values-goals {
+    padding: 8rem 0;
+    position: relative;
+    background-color: transparent;
+}
+
+.values-goals-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.values-goals-text {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.values-goals-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.values-goals-text p:last-child {
+    margin-bottom: 0;
+}
+
+.values-goals-text strong {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+/* Animation for values-goals section */
+.values-goals .section-title {
+    animation: fadeInUp 0.8s forwards 0.2s;
+}
+
+.values-goals-text {
+    animation: fadeInUp 0.8s forwards 0.4s;
+}
   
