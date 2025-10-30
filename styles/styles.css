@@ -74,7 +74,7 @@ h1, h2, h3, h4 {
     overflow: hidden;
 }
 
-svg path {
+.bg-animation svg path {
     stroke: var(--secondary);
     stroke-width: 15px;
     /* fill: none;
@@ -87,7 +87,7 @@ svg path {
     transition: fill 0.3s ease;
   }
 
-.light-mode svg path {
+.light-mode .bg-animation svg path {
     fill: var(--secondary);
     fill-opacity: 0.6;
     stroke-width: 25px;
@@ -995,6 +995,21 @@ header {
     margin-top: auto;
 }
 
+/* Spacing and layout for project external links */
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.99rem; /* space before tech chips */
+}
+
+/* Actions row in project header (opposite to folder icon) */
+.project-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .material-chip {
     display: inline-flex;
     align-items: center;
@@ -1004,10 +1019,24 @@ header {
     border-radius: 16px;
     font-size: 0.8rem;
     transition: var(--transition);
+    gap: 0.4rem;           /* consistent space between icon and text */
+    line-height: 1;        /* avoid extra vertical padding from line height */
 }
 
 .material-chip:hover {
     background-color: rgba(100, 255, 218, 0.2);
+}
+
+/* Ensure icons inside chips have consistent sizing */
+.material-chip .material-icons {
+    font-size: 1rem;
+}
+
+/* Ensure consistent icon height for action chips in project headers */
+.project-actions .material-chip .material-icons,
+.project-actions .material-chip svg {
+    width: 18px;
+    height: 18px;
 }
 
 /* Contact Section */
