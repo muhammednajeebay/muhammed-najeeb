@@ -625,3 +625,45 @@ function initTypingAnimation() {
 document.addEventListener("DOMContentLoaded", () => {
   initTypingAnimation();
 });
+
+
+// Fetch and apply external blog preview (Medium) using Microlink API
+document.addEventListener("DOMContentLoaded", () => {
+  try {
+    const blogCards = document.querySelectorAll('.blog-card[data-url]');
+    blogCards.forEach(async (card) => {
+      const url = card.getAttribute('data-url');
+      const imgEl = card.querySelector('.blog-image');
+      const titleEl = card.querySelector('.blog-title');
+      const excerptEl = card.querySelector('.blog-excerpt');
+      const badgeEl = card.querySelector('.badge.badge-medium');
+
+      if (!url || !imgEl || !titleEl || !excerptEl) return;
+
+      try {
+        const resp = await fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}&meta=true`);
+        if (!resp.ok) throw new Error('Preview fetch failed');
+        const json = await resp.json();
+        const data = json && json.data ? json.data : {};
+
+        if (data.image && data.image.url) {
+          imgEl.src = data.image.url;
+          imgEl.alt = data.title ? `${data.title} cover` : imgEl.alt;
+        }
+        if (data.title) {
+          titleEl.textContent = data.title;
+        }
+        if (data.description) {
+          excerptEl.textContent = data.description;
+        }
+        if (badgeEl && data.publisher) {
+          badgeEl.textContent = data.publisher;
+        }
+      } catch (err) {
+        console.warn('Blog preview fetch error:', err);
+      }
+    });
+  } catch (e) {
+    console.warn('Blog preview initialization error:', e);
+  }
+});
