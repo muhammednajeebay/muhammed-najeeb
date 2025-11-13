@@ -112,11 +112,11 @@ body.batman-mode .job-description li::before {
 }
 
 body.batman-mode .project-card {
-  background-color: #2a2a2a;
+  background-color: #131313;
 }
 
 body.batman-mode .folder-icon {
-  color: #808080;
+  color: #4f4f4f;
 }
 
 body.batman-mode .project-features li::before {
@@ -133,7 +133,7 @@ body.batman-mode .material-chip:hover {
 }
 
 body.batman-mode .contact-right {
-  background-color: #2a2a2a;
+  background-color: #131313;
 }
 
 body.batman-mode .contact-subtitle {
@@ -142,13 +142,13 @@ body.batman-mode .contact-subtitle {
 
 body.batman-mode .form-group input,
 body.batman-mode .form-group textarea {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(34, 34, 34, 0.05);
   border: 1px solid rgba(128, 128, 128, 0.3);
   color: #ffffff;
 }
 
 body.batman-mode .btn-submit {
-  background-color: #808080;
+  background-color: #313131;
   color: #1a1a1a;
 }
 
@@ -282,6 +282,14 @@ svg path {
   transform: translate(-50%, -50%);
   z-index: 1;
   transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* Hide cursor follower and invert circle on mobile */
+@media (max-width: 992px) {
+  .cursor-follower,
+  .invert-circle {
+    display: none !important;
+  }
 }
 
 /* Header */
