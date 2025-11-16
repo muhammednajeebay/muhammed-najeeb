@@ -1140,6 +1140,16 @@ header {
   transform: translateY(0);
 }
 
+/* Hide projects beyond the first 6 by default */
+.project-card.hidden-project {
+  display: none;
+}
+
+.project-card.hidden-project.show {
+  display: flex;
+  animation: projectFadeIn 0.8s ease-out forwards;
+}
+
 .project-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
@@ -1172,8 +1182,54 @@ header {
   color: var(--text-light-secondary);
 }
 
+.project-features-toggle {
+  background: none;
+  border: none;
+  color: var(--secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  width: 100%;
+  text-align: left;
+}
+
+.project-features-toggle:hover {
+  opacity: 0.8;
+}
+
+.project-features-toggle .toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.project-features-toggle.expanded .toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Text change handled by JavaScript */
+
 .project-features {
   margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, margin-bottom 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.project-features.collapsed {
+  max-height: 0;
+  margin-bottom: 0;
+  opacity: 0;
+}
+
+.project-features.expanded {
+  max-height: 500px;
+  margin-bottom: 1.5rem;
+  opacity: 1;
 }
 
 .project-features ul {
@@ -1197,6 +1253,10 @@ header {
 
 .light-mode .project-features li {
   color: var(--text-light-secondary);
+}
+
+.light-mode .project-features-toggle {
+  color: var(--secondary);
 }
 
 .project-tech {
@@ -1461,6 +1521,59 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Load More Button Styles */
+.load-more-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.load-more-btn {
+  background-color: transparent;
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+  padding: 0.8rem 2rem;
+  font-family: "Silkscreen", cursive;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.load-more-btn:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.load-more-btn:active {
+  transform: translateY(-1px);
+}
+
+.load-more-btn .material-icons {
+  transition: transform 0.3s ease;
+}
+
+.load-more-btn.expanded .material-icons {
+  transform: rotate(180deg);
+}
+
+.load-more-btn.hidden {
+  display: none;
+}
+
+.light-mode .load-more-btn {
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.light-mode .load-more-btn:hover {
+  background-color: rgba(10, 25, 47, 0.1);
 }
 
 .fade-in {

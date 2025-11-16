@@ -710,6 +710,8 @@ setInterval(() => {
 // Enhanced Project Cards Animation
 const projectCards = document.querySelectorAll(".project-card");
 const projectsSection = document.querySelector(".projects");
+const hiddenProjects = document.querySelectorAll(".project-card.hidden-project");
+const loadMoreBtn = document.getElementById("load-more-btn");
 
 // Create Intersection Observer for projects section
 const projectsObserver = new IntersectionObserver(
@@ -726,13 +728,104 @@ const projectsObserver = new IntersectionObserver(
 projectsObserver.observe(projectsSection);
 
 function animateProjectCards() {
-  projectCards.forEach((card, index) => {
+  // Only animate visible cards (first 6)
+  const visibleCards = Array.from(projectCards).filter(
+    (card) => !card.classList.contains("hidden-project")
+  );
+  visibleCards.forEach((card, index) => {
     setTimeout(() => {
       card.classList.add("visible");
       card.style.animation = `projectFadeIn 0.8s ease-out forwards`;
     }, index * 150); // Staggered animation with 150ms delay between cards
   });
 }
+
+// Load More functionality - Show 3 projects at a time
+if (loadMoreBtn) {
+  let currentIndex = 0;
+  const projectsPerLoad = 3;
+  const hiddenProjectsArray = Array.from(hiddenProjects);
+  let isShowingLess = false;
+
+  loadMoreBtn.addEventListener("click", () => {
+    // Check if we're in "Show Less" mode
+    if (isShowingLess) {
+      // Hide all shown projects and reset to initial state
+      hiddenProjectsArray.forEach((card) => {
+        card.classList.remove("show");
+        card.classList.remove("visible");
+      });
+
+      // Reset state
+      currentIndex = 0;
+      isShowingLess = false;
+      loadMoreBtn.classList.remove("expanded");
+      loadMoreBtn.querySelector("span:first-child").textContent = "Load More";
+      
+      // Scroll to projects section smoothly
+      setTimeout(() => {
+        projectsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+      return;
+    }
+
+    // Calculate how many projects to show in this batch
+    const endIndex = Math.min(currentIndex + projectsPerLoad, hiddenProjectsArray.length);
+    const projectsToShow = hiddenProjectsArray.slice(currentIndex, endIndex);
+
+    // Show the next batch of projects
+    projectsToShow.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add("show");
+        card.classList.add("visible");
+        card.style.animation = `projectFadeIn 0.8s ease-out forwards`;
+      }, index * 100); // Staggered animation
+    });
+
+    // Update the current index
+    currentIndex = endIndex;
+
+    // Check if all projects are shown
+    if (currentIndex >= hiddenProjectsArray.length) {
+      // Change button to "Show Less" when all projects are shown
+      isShowingLess = true;
+      loadMoreBtn.classList.add("expanded");
+      loadMoreBtn.querySelector("span:first-child").textContent = "Show Less";
+    } else {
+      // Update button text to show remaining count
+      const remaining = hiddenProjectsArray.length - currentIndex;
+      const nextBatch = Math.min(projectsPerLoad, remaining);
+      loadMoreBtn.querySelector("span:first-child").textContent = `Load More (${nextBatch} more)`;
+    }
+  });
+}
+
+// Project Features Toggle Functionality
+document.addEventListener("DOMContentLoaded", () => {
+  const featureToggles = document.querySelectorAll(".project-features-toggle");
+  
+  featureToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const projectCard = toggle.closest(".project-card");
+      const features = projectCard.querySelector(".project-features");
+      const toggleText = toggle.querySelector(".toggle-text");
+      
+      if (features.classList.contains("collapsed")) {
+        // Expand
+        features.classList.remove("collapsed");
+        features.classList.add("expanded");
+        toggle.classList.add("expanded");
+        toggleText.textContent = "Hide Features";
+      } else {
+        // Collapse
+        features.classList.remove("expanded");
+        features.classList.add("collapsed");
+        toggle.classList.remove("expanded");
+        toggleText.textContent = "Show Features";
+      }
+    });
+  });
+});
 
 // Animate skill tags
 const skillTags = document.querySelectorAll(".skill-tag");

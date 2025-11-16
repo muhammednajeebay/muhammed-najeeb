@@ -306,10 +306,10 @@
       </div>
 
       <!-- Skill Categories -->
-      <div class="skill-categories">
+      <!-- <div class="skill-categories"> -->
 
         <!-- Development Category -->
-        <div class="skill-category fade-in">
+        <!-- <div class="skill-category fade-in">
           <h3 class="category-title">
             <span class="material-icons">code</span> Development
           </h3>
@@ -322,10 +322,10 @@
             <div class="skill-item">Cubit</div>
             <div class="skill-item">GoRouter</div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Architecture Category -->
-        <div class="skill-category fade-in">
+        <!-- <div class="skill-category fade-in">
           <h3 class="category-title">
             <span class="material-icons">architecture</span> Architecture
           </h3>
@@ -334,10 +334,10 @@
             <div class="skill-item">MVC</div>
             <div class="skill-item">Modular Development</div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Integration Category -->
-        <div class="skill-category fade-in">
+        <!-- <div class="skill-category fade-in">
           <h3 class="category-title">
             <span class="material-icons">cloud</span> Integration
           </h3>
@@ -349,10 +349,10 @@
             <div class="skill-item">VideoSDK</div>
             <div class="skill-item">Http & Dio</div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Data Storage Category -->
-        <div class="skill-category fade-in">
+        <!-- <div class="skill-category fade-in">
           <h3 class="category-title">
             <span class="material-icons">storage</span> Data Storage
           </h3>
@@ -361,10 +361,10 @@
             <div class="skill-item">SharedPreferences</div>
             <div class="skill-item">Sqflite</div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Tools Category -->
-        <div class="skill-category fade-in">
+        <!-- <div class="skill-category fade-in">
           <h3 class="category-title">
             <span class="material-icons">build</span> Tools
           </h3>
@@ -374,9 +374,9 @@
             <div class="skill-item">Android Studio</div>
             <div class="skill-item">Visual Studio Code</div>
           </div>
-        </div>
+        </div> -->
 
-      </div>
+      <!-- </div> -->
     </div>
 
   </section>
@@ -466,7 +466,11 @@
             It balances real-time collaboration, gamified productivity, and clean architecture principles to ensure
             maintainability and performance.
           </p>
-          <div class="project-features">
+          <button class="project-features-toggle" aria-label="Toggle features">
+            <span class="toggle-text">Show Features</span>
+            <span class="material-icons toggle-icon">expand_more</span>
+          </button>
+          <div class="project-features collapsed">
             <ul>
               <!-- <li>Supports multiple organizations under separate Master Entities</li> -->
               <li>Implements modular architecture using feature-specific BLoCs</li>
@@ -513,7 +517,11 @@
             A Flutter package that dynamically scales text size based on screen or container dimensions, ensuring
             perfect readability and design consistency across devices.
           </p>
-          <div class="project-features">
+          <button class="project-features-toggle" aria-label="Toggle features">
+            <span class="toggle-text">Show Features</span>
+            <span class="material-icons toggle-icon">expand_more</span>
+          </button>
+          <div class="project-features collapsed">
             <ul>
               <li>Auto-adjusts font size within defined min/max limits</li>
               <li>Supports rich text and multi-line scaling</li>
@@ -539,7 +547,11 @@
           <p class="project-description">
             Enterprise ERP for inventory, sales, purchase, and accounts management
           </p>
-          <div class="project-features">
+          <button class="project-features-toggle" aria-label="Toggle features">
+            <span class="toggle-text">Show Features</span>
+            <span class="material-icons toggle-icon">expand_more</span>
+          </button>
+          <div class="project-features collapsed">
             <ul>
               <li>Live dashboards with WebSocket for real-time stock & financial data</li>
               <li>Automated reporting modules for decision-making</li>
@@ -558,7 +570,7 @@
         </div>
 
         <!-- Project : Learning Management System (LMS) -->
-        <div class="project-card">
+        <div class="project-card hidden-project">
           <div class="project-top">
             <span class="material-icons folder-icon">folder</span>
           </div>
@@ -566,7 +578,11 @@
           <p class="project-description">
             School-oriented LMS with role-based dashboards and exam modules
           </p>
-          <div class="project-features">
+          <button class="project-features-toggle" aria-label="Toggle features">
+            <span class="toggle-text">Show Features</span>
+            <span class="material-icons toggle-icon">expand_more</span>
+          </button>
+          <div class="project-features collapsed">
             <ul>
               <li>Curriculum planning & teacher assignments</li>
               <li>Exam management with high concurrent usage support</li>
@@ -584,7 +600,7 @@
         </div>
 
         <!-- Project : Event ERP -->
-        <div class="project-card">
+        <div class="project-card hidden-project">
           <div class="project-top">
             <span class="material-icons folder-icon">folder</span>
           </div>
@@ -592,7 +608,11 @@
           <p class="project-description">
             Specialized ERP for event management companies
           </p>
-          <div class="project-features">
+          <button class="project-features-toggle" aria-label="Toggle features">
+            <span class="toggle-text">Show Features</span>
+            <span class="material-icons toggle-icon">expand_more</span>
+          </button>
+          <div class="project-features collapsed">
             <ul>
               <li>Booking & slot allocation management</li>
               <li>Facility usage tracking</li>
@@ -610,7 +630,7 @@
         </div>
 
         <!-- Project : DIGIBANK -->
-        <div class="project-card">
+        <div class="project-card hidden-project">
           <div class="project-top">
             <span class="material-icons folder-icon">folder</span>
           </div>
@@ -618,7 +638,11 @@
           <p class="project-description">
             Banking Application Clone with seamless financial services
           </p>
-          <div class="project-features">
+          <button class="project-features-toggle" aria-label="Toggle features">
+            <span class="toggle-text">Show Features</span>
+            <span class="material-icons toggle-icon">expand_more</span>
+          </button>
+          <div class="project-features collapsed">
             <ul>
               <li>Account overview with balance and transaction details</li>
               <li>Detailed transaction history tracking</li>
@@ -636,7 +660,7 @@
         </div>
 
         <!-- Project : YUMMLY -->
-        <div class="project-card">
+        <div class="project-card hidden-project">
           <div class="project-top">
             <span class="material-icons folder-icon">folder</span>
           </div>
@@ -644,7 +668,11 @@
           <p class="project-description">
             Recipe Recommendation App with personalized suggestions
           </p>
-          <div class="project-features">
+          <button class="project-features-toggle" aria-label="Toggle features">
+            <span class="toggle-text">Show Features</span>
+            <span class="material-icons toggle-icon">expand_more</span>
+          </button>
+          <div class="project-features collapsed">
             <ul>
               <li>Popular recipe showcase</li>
               <li>User recipe upload functionality</li>
@@ -660,7 +688,7 @@
         </div>
 
         <!-- Project : Placement Assistance App -->
-        <div class="project-card">
+        <div class="project-card hidden-project">
           <div class="project-top">
             <span class="material-icons folder-icon">folder</span>
           </div>
@@ -668,7 +696,11 @@
           <p class="project-description">
             Platform connecting companies, students, and administrators
           </p>
-          <div class="project-features">
+          <button class="project-features-toggle" aria-label="Toggle features">
+            <span class="toggle-text">Show Features</span>
+            <span class="material-icons toggle-icon">expand_more</span>
+          </button>
+          <div class="project-features collapsed">
             <ul>
               <li>Company job posting functionality</li>
               <li>Student application system</li>
@@ -684,7 +716,7 @@
         </div>
 
         <!-- Project : News Hunt -->
-        <div class="project-card">
+        <div class="project-card hidden-project">
           <div class="project-top">
             <span class="material-icons folder-icon">folder</span>
           </div>
@@ -692,7 +724,11 @@
           <p class="project-description">
             Up-to-date news article aggregator application
           </p>
-          <div class="project-features">
+          <button class="project-features-toggle" aria-label="Toggle features">
+            <span class="toggle-text">Show Features</span>
+            <span class="material-icons toggle-icon">expand_more</span>
+          </button>
+          <div class="project-features collapsed">
             <ul>
               <li>Real-time news fetching from newsapi.org</li>
               <li>Categorized news browsing</li>
@@ -708,7 +744,7 @@
         </div>
 
         <!-- Project : Quiz App -->
-        <div class="project-card">
+        <div class="project-card hidden-project">
           <div class="project-top">
             <span class="material-icons folder-icon">folder</span>
           </div>
@@ -716,7 +752,11 @@
           <p class="project-description">
             Self-assessment knowledge testing application
           </p>
-          <div class="project-features">
+          <button class="project-features-toggle" aria-label="Toggle features">
+            <span class="toggle-text">Show Features</span>
+            <span class="material-icons toggle-icon">expand_more</span>
+          </button>
+          <div class="project-features collapsed">
             <ul>
               <li>Dynamic quiz content fetched from API</li>
               <li>Interactive quiz interface</li>
@@ -731,6 +771,14 @@
           </div>
         </div>
 
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-container">
+        <button class="load-more-btn" id="load-more-btn">
+          <span>Load More</span>
+          <span class="material-icons">expand_more</span>
+        </button>
       </div>
 
     </div>
