@@ -815,13 +815,13 @@ document.addEventListener("DOMContentLoaded", () => {
         features.classList.remove("collapsed");
         features.classList.add("expanded");
         toggle.classList.add("expanded");
-        toggleText.textContent = "Hide Features";
+        toggleText.textContent = "Hide ";
       } else {
         // Collapse
         features.classList.remove("expanded");
         features.classList.add("collapsed");
         toggle.classList.remove("expanded");
-        toggleText.textContent = "Show Features";
+        toggleText.textContent = "Show More";
       }
     });
   });
