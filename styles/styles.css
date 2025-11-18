@@ -406,13 +406,21 @@ header {
     order: 4;
   }
 
+  .hero-social-links {
+    width: fit-content !important;
+    margin: 0 auto;
+    justify-content: center;
+    order: 5;
+    margin-bottom: 1rem;
+  }
+
   .cta-button {
     margin: 0 auto;
     display: block;
     width: fit-content;
     padding: 1.2rem 2.5rem; /* Slightly larger */
     font-size: 1.1rem;
-    order: 5;
+    order: 6;
   }
 }
 
@@ -813,6 +821,12 @@ header {
 
 .light-mode .hero-description {
   color: var(--text-light-secondary);
+}
+
+.hero-social-links {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards 0.7s;
 }
 
 .light-mode .cta-button {
@@ -2191,6 +2205,14 @@ body.light-mode .badge.badge-medium {
     margin: 0;
     width: 100%;
     text-align: center;
+  }
+
+  .hero-social-links {
+    width: fit-content !important;
+    margin: 0 auto;
+    justify-content: center;
+    order: 5;
+    margin-bottom: 1rem;
   }
 }
 
