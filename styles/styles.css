@@ -788,6 +788,46 @@ header {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Light mode styles for header */
+.light-mode header {
+  background-color: rgba(240, 255, 253, 0.8);
+}
+
+.light-mode header.scrolled {
+  background-color: rgba(240, 255, 253, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .logo {
+  color: var(--secondary);
+}
+
+/* Light mode styles for hero section */
+.light-mode .hero-subtitle {
+  color: var(--secondary);
+}
+
+.light-mode .hero-title {
+  color: var(--text-light);
+}
+
+.light-mode .hero-description {
+  color: var(--text-light-secondary);
+}
+
+.light-mode .cta-button {
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.light-mode .cta-button::before {
+  background-color: rgba(4, 139, 108, 0.1);
+}
+
+.light-mode .cta-button:hover {
+  box-shadow: 0 10px 20px rgba(4, 139, 108, 0.2);
+}
+
 .hero-image {
   display: flex;
   justify-content: center;
@@ -849,6 +889,14 @@ header {
   height: 1px;
   background-color: rgba(100, 255, 218, 0.3);
   margin-left: 1rem;
+}
+
+.light-mode .section-title {
+  color: var(--text-light);
+}
+
+.light-mode .section-title::after {
+  background-color: rgba(4, 139, 108, 0.3);
 }
 
 .about-content {
@@ -1420,6 +1468,15 @@ footer {
 
 .light-mode .social-link:hover svg path {
   stroke: var(--secondary);
+}
+
+/* Light mode styles for material icons in social links */
+.light-mode .social-link .material-icons-outlined {
+  color: var(--text-light);
+}
+
+.light-mode .social-link:hover .material-icons-outlined {
+  color: var(--secondary);
 }
 
 /* Hover effect */
