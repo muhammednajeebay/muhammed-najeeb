@@ -1,0 +1,238 @@
+{
+  "hero": {
+    "greeting": "Hi, my name is",
+    "name": "Muhammed Najeeb.",
+    "typingText": "I build things for mobile.",
+    "description": "I'm a Flutter developer specializing in building exceptional digital experiences for mobile platforms.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/muhammednajeebay",
+      "github": "https://github.com/muhammednajeebay",
+      "medium": "https://medium.com/@muhammednajeeb.ay",
+      "email": "muhammednajeeb.ay@gmail.com",
+      "resume": "https://drive.google.com/file/d/1915hQfy0w91T7Mv6WcDaWNWHvQ8UEpLL/view"
+    },
+    "cta": {
+      "label": "Get In Touch",
+      "targetId": "#contact"
+    }
+  },
+  "about": {
+    "paragraphsHtml": [
+      "Hi, I'm <strong>Najeeb</strong>, a Flutter Developer and Mobile App Engineer passionate about crafting applications that are fast, scalable, and truly user-focused. With hands-on experience in production-grade apps, I bring together performance, clean architecture, and intuitive design to deliver seamless digital experiences.",
+      "My expertise includes state management, API-driven development, animations, and platform integrations. I care deeply about writing clean, maintainable code and building solutions that can grow and adapt with time. For me, great apps are not just functional, they're elegant and sustainable.",
+      "I thrive on continuous learning, constructive feedback, and staying ahead with modern Flutter/Dart practices. Known for being detail-oriented and pragmatic, I approach problem-solving with clarity while keeping long-term scalability in mind."
+    ]
+  },
+  "valuesGoals": {
+    "valuesHtml": "\ud83d\udd39 <strong>Core Values:</strong> I believe in building with <em>integrity</em>, taking full <em>ownership</em> of my work, and staying committed to <em>continuous learning</em>. Every project I work on is driven by a pursuit of <em>excellence in execution</em> and a mindset of creating solutions that last.",
+    "goalsHtml": "\ud83d\udd39 <strong>Goals:</strong> My vision is to grow into a senior engineering role where I can <em>design scalable architectures</em>, <em>mentor developers</em>, and help shape digital products that deliver meaningful impact to users and businesses alike."
+  },
+  "experience": [
+    {
+      "tabId": "tab1",
+      "companyShort": "NEXTEONS",
+      "title": "Flutter Developer",
+      "company": "NEXTEONS Software Solutions",
+      "duration": "May 2024 - Present",
+      "highlights": [
+        "Built a full-featured <strong>ERP software</strong> for inventory, sales, purchase, and accounts management with real-time dashboards powered by WebSocket.",
+        "Developed a <strong>Learning Management System (LMS)</strong> with curriculum planning, examinations, and role-based dashboards \u2014 optimized for high concurrent usage.",
+        "Delivered an <strong>ERP for Event Management companies</strong> with booking, slot allocation, facility tracking, and automated financial reporting.",
+        "Applied <strong>Clean Architecture & Modular Development</strong> to ensure maintainability and scalability.",
+        "Used <strong>GetX & BLoC</strong> for efficient state management and <strong>GoRouter</strong> for navigation.",
+        "Integrated <strong>GraphQL APIs</strong> for optimized data querying and reduced backend overhead.",
+        "Enhanced app performance by profiling API calls and optimizing response time.",
+        "Collaborated with cross-functional teams using <strong>Git</strong> and GitHub for version control."
+      ]
+    },
+    {
+      "tabId": "tab2",
+      "companyShort": "Luminar",
+      "title": "Flutter Developer Intern",
+      "company": "Luminar TechnoHub",
+      "duration": "Nov 2023 - May 2024",
+      "highlights": [
+        "Developed <strong>DIGIBANK</strong> (Banking App Clone) with account overview, balance details, and transaction history using Provider state management and Clean Architecture.",
+        "Created <strong>YUMMLY</strong> (Recipe Recommendation App) featuring personalized recommendations, recipe uploads, bookmarking, and smooth API integrations for dynamic data.",
+        "Implemented <strong>Custom Clean Architecture</strong> to ensure code modularity, scalability, and maintainability.",
+        "Integrated <strong>REST APIs</strong> and <strong>Firebase</strong> for real-time communication and backend synchronization.",
+        "Optimized application performance and ensured intuitive, user-friendly interfaces.",
+        "Collaborated with team members using <strong>Git</strong> and GitHub for effective version control and code management."
+      ]
+    }
+  ],
+  "skills": [
+    { "icon": "flutter_dash", "label": "Flutter" },
+    { "icon": "code", "label": "Dart" },
+    { "icon": "architecture", "label": "Clean Architecture" },
+    { "icon": "account_tree", "label": "MVC" },
+    { "icon": "category", "label": "State Management" },
+    { "icon": "layers", "label": "BLoC" },
+    { "icon": "layers", "label": "Cubit" },
+    { "icon": "layers", "label": "Provider" },
+    { "icon": "layers", "label": "GetX" },
+    { "icon": "route", "label": "GoRouter" },
+    { "icon": "api", "label": "REST APIs" },
+    { "icon": "integration_instructions", "label": "GraphQL" },
+    { "icon": "http", "label": "Dio & Http Clients" },
+    { "icon": "sync", "label": "WebSockets" },
+    { "icon": "lock", "label": "OAuth & JWT Auth" },
+    { "icon": "videocam", "label": "VideoSDK" },
+    { "icon": "cloud", "label": "Firebase" },
+    { "icon": "storage", "label": "Local Storage" },
+    { "icon": "dataset", "label": "Hive" },
+    { "icon": "data_object", "label": "Isar" },
+    { "icon": "folder", "label": "SharedPreferences" },
+    { "icon": "storage", "label": "Sqflite" },
+    { "icon": "lock_outline", "label": "Secure Storage" },
+    { "icon": "animation", "label": "Rive Animations" },
+    { "icon": "movie", "label": "Lottie Animations" },
+    { "icon": "hub", "label": "Platform Channels" },
+    { "icon": "code", "label": "Method Channels" },
+    { "icon": "rule", "label": "Unit & Widget Testing" },
+    { "icon": "construction", "label": "Git & GitHub" },
+    { "icon": "science", "label": "Postman" },
+    { "icon": "developer_mode", "label": "Android Studio" },
+    { "icon": "code_off", "label": "VS Code" },
+    { "icon": "query_stats", "label": "Flutter DevTools" },
+    { "icon": "terminal", "label": "GitHub Actions" },
+    { "icon": "rocket_launch", "label": "CI/CD" }
+  ],
+  "projects": [
+    {
+      "title": "Task Matrix ( In Progress )",
+      "description": "A scalable task management platform built with Flutter and Supabase \u2014 designed for teams operating across multiple organizations. It balances real-time collaboration, gamified productivity, and clean architecture principles to ensure maintainability and performance.",
+      "features": [
+        "Implements modular architecture using feature-specific BLoCs",
+        "Secure authentication, role management, and real-time updates via Supabase",
+        "Task points, leaderboards, and progress tracking for team motivation"
+      ],
+      "tech": ["Flutter", "Dart", "Supabase", "BLoC", "GoRouter", "Clean Architecture"],
+      "links": {
+        "github": "https://github.com/muhammednajeebay/taskmatrix"
+      }
+    },
+    {
+      "title": "Responsive Text Plus",
+      "description": "A Flutter package that dynamically scales text size based on screen or container dimensions, ensuring perfect readability and design consistency across devices.",
+      "features": [
+        "Auto-adjusts font size within defined min/max limits",
+        "Supports rich text and multi-line scaling",
+        "Optimized for performance on mobile, web, and desktop",
+        "Provides fluid typography and overflow handling options"
+      ],
+      "tech": ["Flutter", "Dart", "Pub.dev", "Open Source"],
+      "links": {
+        "pub": "https://pub.dev/packages/responsive_text_plus",
+        "github": "https://github.com/muhammednajeebay/responsive_text"
+      }
+    },
+    {
+      "title": "Flutter Portfolio",
+      "description": "A professionally architected Flutter Web application showcasing clean architecture, smooth animations, and automated CI/CD workflows with GitHub Actions deployment.",
+      "features": [
+        "Clean Architecture with domain-driven design and repository pattern",
+        "BLoC-based theme management with light/dark mode inversion",
+        "Hash-based deep linking with go_router",
+        "Automated testing and deployment pipeline via GitHub Actions",
+        "60fps performance with optimized rendering and motion background"
+      ],
+      "tech": ["Flutter Web", "Clean Architecture", "flutter_bloc", "go_router", "GitHub Actions"],
+      "links": {
+        "live": "https://muhammednajeebay.github.io/portfolio_/",
+        "github": "https://github.com/muhammednajeebay/portfolio_"
+      }
+    },
+    {
+      "title": "ERP Software",
+      "description": "Enterprise-grade ERP covering inventory control, sales workflows, purchase cycles, and financial accounting \u2014 designed for high reliability and smooth multi-department operations.",
+      "features": [
+        "Live dashboards with WebSocket for real-time stock & financial data",
+        "Automated reporting modules for decision-making",
+        "Inventory, sales, purchase, and accounts tracking",
+        "Role-based access for different user levels"
+      ],
+      "tech": ["Flutter", "Dart", "GetX", "GoRouter", "GraphQL", "WebSocket"]
+    },
+    {
+      "title": "Learning Management System (LMS)",
+      "description": "School-focused LMS featuring role-based dashboards for admins, teachers, complete with attendance tracking, assignments, grading, and exam management.",
+      "features": [
+        "Curriculum planning & teacher assignments",
+        "Exam management with high concurrent usage support",
+        "Role-based dashboards for teachers, students, and admins",
+        "Efficient data querying with GraphQL"
+      ],
+      "tech": ["Flutter", "Dart", "BLoC", "GoRouter", "GraphQL"]
+    },
+    {
+      "title": "Event ERP",
+      "description": "Custom ERP tailored for event management companies, enabling streamlined client handling, vendor coordination, budgeting, and real-time event workflow tracking.",
+      "features": [
+        "Booking & slot allocation management",
+        "Facility usage tracking",
+        "Financial reporting with automated workflows",
+        "Enhanced UI workflows for faster staff productivity"
+      ],
+      "tech": ["Flutter", "Dart", "BLoC", "GraphQL", "GoRouter"]
+    },
+    {
+      "title": "DIGIBANK",
+      "description": "Banking Application Clone with seamless financial services.",
+      "features": [
+        "Account overview with balance and transaction details",
+        "Detailed transaction history tracking",
+        "Custom clean architecture implementation",
+        "API integration using REST",
+        "State management using Provider"
+      ],
+      "tech": ["Flutter", "Provider", "Clean Architecture", "REST API"]
+    },
+    {
+      "title": "YUMMLY",
+      "description": "Recipe Recommendation App with personalized suggestions.",
+      "features": [
+        "Popular recipe showcase",
+        "User recipe upload functionality",
+        "Recipe bookmarking system",
+        "API integration for live data"
+      ],
+      "tech": ["Flutter", "Provider", "REST API"]
+    },
+    {
+      "title": "Placement Assistance App",
+      "description": "Platform connecting companies, students, and administrators.",
+      "features": [
+        "Company job posting functionality",
+        "Student application system",
+        "Admin monitoring dashboard",
+        "Role-based access controls"
+      ],
+      "tech": ["Flutter", "Provider", "REST API"]
+    },
+    {
+      "title": "News Hunt",
+      "description": "Up-to-date news article aggregator application.",
+      "features": [
+        "Real-time news fetching from newsapi.org",
+        "Categorized news browsing",
+        "Bookmarking feature",
+        "Responsive article layout"
+      ],
+      "tech": ["Flutter", "Provider", "REST API"]
+    },
+    {
+      "title": "Quiz App",
+      "description": "Self-assessment knowledge testing application.",
+      "features": [
+        "Dynamic quiz content fetched from API",
+        "Interactive quiz interface",
+        "Score tracking and results",
+        "State management using Provider"
+      ],
+      "tech": ["Flutter", "Provider", "REST API"]
+    }
+  ]
+}
+
+

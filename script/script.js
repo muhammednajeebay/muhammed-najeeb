@@ -827,10 +827,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Animate skill tags
-const skillTags = document.querySelectorAll(".skill-tag");
-
 function animateSkillTags() {
+  const skillTags = document.querySelectorAll(".skill-tag");
   skillTags.forEach((tag, index) => {
     setTimeout(() => {
       tag.style.opacity = "1";
@@ -1195,4 +1193,267 @@ function formatMediumDate(value) {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadMediumPosts();
+});
+
+// ---------------------------
+// Portfolio content from JSON
+// ---------------------------
+
+async function loadPortfolioContent() {
+  try {
+    const response = await fetch("assets/content.json", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to load content.json: ${response.status}`);
+    }
+
+    const data = await response.json();
+    if (!data) return;
+
+    populateHero(data.hero);
+    populateAbout(data.about);
+    populateValuesGoals(data.valuesGoals);
+    populateExperience(data.experience);
+    populateSkills(data.skills);
+    populateProjects(data.projects);
+  } catch (error) {
+    console.warn("Could not load portfolio content from JSON:", error);
+  }
+}
+
+function populateHero(hero) {
+  if (!hero) return;
+  const subtitleEl = document.querySelector(".hero-subtitle");
+  const nameEl = document.querySelector(".hero-title");
+  const typingEl = document.querySelector(".typing-text");
+  const descEl = document.querySelector(".hero-description");
+  const ctaEl = document.querySelector(".cta-button");
+
+  if (subtitleEl && hero.greeting) {
+    subtitleEl.textContent = hero.greeting;
+  }
+  if (nameEl && hero.name) {
+    nameEl.textContent = hero.name;
+  }
+  if (typingEl && hero.typingText) {
+    typingEl.setAttribute("data-text", hero.typingText);
+    typingEl.textContent = "";
+  }
+  if (descEl && hero.description) {
+    descEl.textContent = hero.description;
+  }
+
+  // Social links (order: LinkedIn, GitHub, Medium, Email, Resume)
+  const socialLinks = document.querySelectorAll(
+    ".hero-social-links .social-link, .hero-social-links a[href^='mailto:']"
+  );
+  if (socialLinks.length >= 5 && hero.social) {
+    const [linkedinEl, githubEl, mediumEl, emailEl, resumeEl] = socialLinks;
+    if (linkedinEl && hero.social.linkedin) {
+      linkedinEl.href = hero.social.linkedin;
+    }
+    if (githubEl && hero.social.github) {
+      githubEl.href = hero.social.github;
+    }
+    if (mediumEl && hero.social.medium) {
+      mediumEl.href = hero.social.medium;
+    }
+    if (emailEl && hero.social.email) {
+      emailEl.href = `mailto:${hero.social.email}`;
+    }
+    if (resumeEl && hero.social.resume) {
+      resumeEl.href = hero.social.resume;
+    }
+  }
+
+  if (ctaEl && hero.cta) {
+    if (hero.cta.label) {
+      // Rebuild CTA content to avoid relying on existing hardcoded text
+      ctaEl.innerHTML = `
+        <span class="material-icons-outlined" style="font-size: 1rem; margin-right: 0.5rem">send</span>
+        ${hero.cta.label}
+      `;
+    }
+    if (hero.cta.targetId) {
+      ctaEl.setAttribute("href", hero.cta.targetId);
+    }
+  }
+}
+
+function populateAbout(about) {
+  if (!about) return;
+  const aboutContainer = document.querySelector(".about-text");
+  if (!aboutContainer) return;
+
+  if (Array.isArray(about.paragraphsHtml)) {
+    aboutContainer.innerHTML = about.paragraphsHtml
+      .map((p) => `<p>${p}</p>`)
+      .join("");
+  }
+}
+
+function populateValuesGoals(valuesGoals) {
+  if (!valuesGoals) return;
+  const valuesGoalsText = document.querySelector(".values-goals-text");
+  if (!valuesGoalsText) return;
+
+  const parts = [];
+  if (valuesGoals.valuesHtml) {
+    parts.push(`<p>${valuesGoals.valuesHtml}</p>`);
+  }
+  if (valuesGoals.goalsHtml) {
+    parts.push(`<p>${valuesGoals.goalsHtml}</p>`);
+  }
+
+  if (parts.length) {
+    valuesGoalsText.innerHTML = parts.join("");
+  }
+}
+
+function populateExperience(experiences) {
+  if (!Array.isArray(experiences)) return;
+
+  experiences.forEach((exp) => {
+    if (!exp.tabId) return;
+    const tabContent = document.getElementById(exp.tabId);
+    if (!tabContent) return;
+
+    const titleEl = tabContent.querySelector(".job-title");
+    const companyEl = tabContent.querySelector(".job-company");
+    const durationEl = tabContent.querySelector(".job-duration");
+    const listEl = tabContent.querySelector(".job-description ul");
+
+    if (titleEl && exp.title) {
+      titleEl.textContent = exp.title;
+    }
+    if (companyEl && exp.company) {
+      companyEl.textContent = exp.company;
+    }
+    if (durationEl && exp.duration) {
+      durationEl.textContent = exp.duration;
+    }
+
+    if (listEl && Array.isArray(exp.highlights)) {
+      listEl.innerHTML = "";
+      exp.highlights.forEach((item) => {
+        const li = document.createElement("li");
+        li.innerHTML = item;
+        listEl.appendChild(li);
+      });
+    }
+  });
+
+  // Also update tab button labels if provided
+  const tabs = document.querySelectorAll(".experience-tabs .tab-button");
+  experiences.forEach((exp, index) => {
+    if (!exp.companyShort) return;
+    const tabBtn = tabs[index];
+    if (tabBtn) {
+      tabBtn.textContent = exp.companyShort;
+    }
+  });
+}
+
+function populateSkills(skills) {
+  if (!Array.isArray(skills)) return;
+  const container = document.querySelector(".skills-container");
+  if (!container) return;
+
+  const fragments = skills
+    .map((skill) => {
+      const icon = skill.icon || "code";
+      const label = skill.label || "";
+      return `
+        <div class="skill-tag fade-in">
+          <span class="material-icons">${icon}</span>
+          ${label}
+        </div>
+      `;
+    })
+    .join("");
+
+  container.innerHTML = fragments;
+}
+
+function populateProjects(projects) {
+  if (!Array.isArray(projects)) return;
+  const cards = document.querySelectorAll(".projects .project-card");
+  if (!cards.length) return;
+
+  cards.forEach((card, index) => {
+    const project = projects[index];
+    if (!project) return;
+
+    const titleEl = card.querySelector(".project-title");
+    const descEl = card.querySelector(".project-description");
+    const featuresList = card.querySelector(".project-features ul");
+    const techContainer = card.querySelector(".project-tech");
+    const actionsContainer = card.querySelector(".project-actions");
+
+    if (titleEl && project.title) {
+      titleEl.textContent = project.title;
+    }
+    if (descEl && project.description) {
+      descEl.textContent = project.description;
+    }
+
+    if (featuresList && Array.isArray(project.features)) {
+      featuresList.innerHTML = "";
+      project.features.forEach((feature) => {
+        const li = document.createElement("li");
+        li.textContent = feature;
+        featuresList.appendChild(li);
+      });
+    }
+
+    if (techContainer && Array.isArray(project.tech)) {
+      techContainer.innerHTML = "";
+      project.tech.forEach((tech) => {
+        const chip = document.createElement("div");
+        chip.className = "material-chip";
+        chip.textContent = tech;
+        techContainer.appendChild(chip);
+      });
+    }
+
+    // Update project action links (GitHub, Live, Pub.dev) from JSON
+    if (actionsContainer && project.links) {
+      const { github, live, pub } = project.links;
+
+      if (github) {
+        const githubLink =
+          actionsContainer.querySelector("a[aria-label*='GitHub']") ||
+          actionsContainer.querySelector("a[href*='github.com']");
+        if (githubLink) {
+          githubLink.href = github;
+        }
+      }
+
+      if (live) {
+        const liveLink =
+          actionsContainer.querySelector("a[aria-label*='Live']") ||
+          actionsContainer.querySelector(".material-chip");
+        if (liveLink) {
+          liveLink.href = live;
+        }
+      }
+
+      if (pub) {
+        const pubLink =
+          actionsContainer.querySelector("a[aria-label*='Pub.dev']") ||
+          actionsContainer.querySelector(".material-chip");
+        if (pubLink) {
+          pubLink.href = pub;
+        }
+      }
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadPortfolioContent();
 });
