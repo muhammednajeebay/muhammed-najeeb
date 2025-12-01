@@ -1219,6 +1219,7 @@ async function loadPortfolioContent() {
     populateValuesGoals(data.valuesGoals);
     populateExperience(data.experience);
     populateSkills(data.skills);
+    populateSkillCategories(data.skillCategories);
     populateProjects(data.projects);
   } catch (error) {
     console.warn("Could not load portfolio content from JSON:", error);
@@ -1281,6 +1282,11 @@ function populateHero(hero) {
     if (hero.cta.targetId) {
       ctaEl.setAttribute("href", hero.cta.targetId);
     }
+  }
+
+  // Ensure typing animation shows the updated text from JSON
+  if (hero.typingText) {
+    setTypingTextAndAnimate(hero.typingText);
   }
 }
 
@@ -1379,6 +1385,46 @@ function populateSkills(skills) {
   container.innerHTML = fragments;
 }
 
+function populateSkillCategories(categories) {
+  if (!Array.isArray(categories)) return;
+  const container = document.querySelector("[data-skill-categories]");
+  if (!container) return;
+
+  const fragment = document.createDocumentFragment();
+
+  categories.forEach((cat) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "skill-category fade-in";
+
+    const heading = document.createElement("h3");
+    heading.className = "category-title";
+    const iconSpan = document.createElement("span");
+    iconSpan.className = "material-icons";
+    iconSpan.textContent = cat.icon || "code";
+    heading.appendChild(iconSpan);
+    heading.append(` ${cat.title || ""}`);
+
+    const grid = document.createElement("div");
+    grid.className = "skills-grid";
+
+    if (Array.isArray(cat.items)) {
+      cat.items.forEach((item) => {
+        const div = document.createElement("div");
+        div.className = "skill-item";
+        div.textContent = item;
+        grid.appendChild(div);
+      });
+    }
+
+    wrapper.appendChild(heading);
+    wrapper.appendChild(grid);
+    fragment.appendChild(wrapper);
+  });
+
+  container.innerHTML = "";
+  container.appendChild(fragment);
+}
+
 function populateProjects(projects) {
   if (!Array.isArray(projects)) return;
   const cards = document.querySelectorAll(".projects .project-card");
@@ -1439,6 +1485,10 @@ function populateProjects(projects) {
           actionsContainer.querySelector(".material-chip");
         if (liveLink) {
           liveLink.href = live;
+          // Ensure visible label
+          if (!liveLink.textContent.trim()) {
+            liveLink.textContent = "Live";
+          }
         }
       }
 
@@ -1448,6 +1498,10 @@ function populateProjects(projects) {
           actionsContainer.querySelector(".material-chip");
         if (pubLink) {
           pubLink.href = pub;
+          // Ensure visible label
+          if (!pubLink.textContent.trim()) {
+            pubLink.textContent = "Pub.dev";
+          }
         }
       }
     }

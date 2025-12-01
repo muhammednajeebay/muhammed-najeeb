@@ -98,6 +98,33 @@
     { "icon": "terminal", "label": "GitHub Actions" },
     { "icon": "rocket_launch", "label": "CI/CD" }
   ],
+  "skillCategories": [
+    {
+      "title": "Development",
+      "icon": "code",
+      "items": ["Flutter", "Dart", "Provider", "GetX", "BLoC", "Cubit", "GoRouter"]
+    },
+    {
+      "title": "Architecture",
+      "icon": "architecture",
+      "items": ["Clean Architecture", "MVC", "Modular Development"]
+    },
+    {
+      "title": "Integration",
+      "icon": "cloud",
+      "items": ["REST API", "GraphQL", "Firebase (Auth, Firestore, CLI, Realtime)", "WebSockets", "VideoSDK", "Http & Dio"]
+    },
+    {
+      "title": "Data Storage",
+      "icon": "storage",
+      "items": ["Hive", "SharedPreferences", "Sqflite"]
+    },
+    {
+      "title": "Tools",
+      "icon": "build",
+      "items": ["Git & GitHub", "Postman", "Android Studio", "Visual Studio Code"]
+    }
+  ],
   "projects": [
     {
       "title": "Task Matrix ( In Progress )",
@@ -128,7 +155,7 @@
       }
     },
     {
-      "title": "Flutter Portfolio",
+      "title": "Flutter Portfolio ",
       "description": "A professionally architected Flutter Web application showcasing clean architecture, smooth animations, and automated CI/CD workflows with GitHub Actions deployment.",
       "features": [
         "Clean Architecture with domain-driven design and repository pattern",
