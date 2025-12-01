@@ -177,6 +177,14 @@
               </path>
             </svg>
           </a>
+          <a href="https://medium.com/@muhammednajeeb.ay" class="social-link" target="_blank"
+            aria-label="Medium Profile"
+            style="display: flex; align-items: center; color: var(--secondary); transition: color 0.3s; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 17V7l6 7 6-7v10" />
+            </svg>
+          </a>
           <a href="mailto:muhammednajeeb.ay@gmail.com" class="social-link" aria-label="Send Email"
             style="display: flex; align-items: center; color: var(--secondary); transition: color 0.3s; text-decoration: none;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -626,7 +634,7 @@
             <div class="project-actions">
               <a href="https://muhammednajeebay.github.io/portfolio_/" target="_blank" rel="noopener noreferrer"
                 class="material-chip" aria-label="View Live Demo (opens in a new tab)">
-                Live 
+                Live
               </a>
               <a href="https://github.com/muhammednajeebay/portfolio_" class="social-link" target="_blank"
                 aria-label="GitHub Repository">
@@ -641,7 +649,8 @@
           </div>
           <h3 class="project-title">Flutter Portfolio</h3>
           <p class="project-description">
-            A professionally architected Flutter Web application showcasing clean architecture, smooth animations, and automated CI/CD workflows with GitHub Actions deployment.
+            A professionally architected Flutter Web application showcasing clean architecture, smooth animations, and
+            automated CI/CD workflows with GitHub Actions deployment.
           </p>
           <button class="project-features-toggle" aria-label="Toggle features">
             <span class="toggle-text">Show More</span>
@@ -913,35 +922,40 @@
 
   <section class="blog-section" id="blog">
     <div class="container">
-      <h2 class="section-title">Blog & Writing</h2>
-      <div class="blog-grid">
-        <!-- Medium Article Card -->
-        <article class="blog-card" aria-label="Medium article preview"
-          data-url="https://medium.com/@muhammednajeeb.ay/what-building-a-complex-flutter-calendar-taught-me-about-widget-architecture-77840a837635">
-          <a class="blog-link"
-            href="https://medium.com/@muhammednajeeb.ay/what-building-a-complex-flutter-calendar-taught-me-about-widget-architecture-77840a837635"
-            target="_blank" rel="noopener noreferrer">
-            <div class="blog-thumb">
-              <img class="blog-image" src="assets/preview.png" alt="Flutter calendar architecture article cover"
-                loading="lazy" />
-              <span class="badge badge-medium">Medium</span>
-            </div>
+      <h2 class="section-title fade-in">Blogs & Articles</h2>
+      <div class="blog-carousel" aria-live="polite">
+        <button class="blog-nav" type="button" aria-label="Previous article" data-blog-nav="prev" disabled>
+          <span class="material-icons" aria-hidden="true">chevron_left</span>
+        </button>
+        <div class="blog-track" data-blog-track role="list" aria-label="Latest Medium posts">
+          <article class="blog-card skeleton-card" aria-hidden="true">
+            <div class="blog-thumb skeleton-block"></div>
             <div class="blog-content">
-              <h3 class="blog-title">What Building a Complex Flutter Calendar Taught Me About Widget Architecture</h3>
-              <p class="blog-excerpt">
-                Lessons from designing a custom Flutter calendar: model-first design, separating state from UI, adaptive
-                views across devices,
-                and building reusable, modular widget systems that scale without chaos.
-              </p>
-              <div class="blog-meta">
-                <span class="blog-date">Oct 2025</span>
-                <span class="blog-dot">•</span>
-                <span class="blog-read">4 min read</span>
-              </div>
+              <div class="skeleton-line skeleton-line--lg"></div>
             </div>
-          </a>
-        </article>
+          </article>
+          <article class="blog-card skeleton-card" aria-hidden="true">
+            <div class="blog-thumb skeleton-block"></div>
+            <div class="blog-content">
+              <div class="skeleton-line skeleton-line--lg"></div>
+            </div>
+          </article>
+          <article class="blog-card skeleton-card" aria-hidden="true">
+            <div class="blog-thumb skeleton-block"></div>
+            <div class="blog-content">
+              <div class="skeleton-line skeleton-line--lg"></div>
+            </div>
+          </article>
+        </div>
+        <button class="blog-nav" type="button" aria-label="Next article" data-blog-nav="next">
+          <span class="material-icons" aria-hidden="true">chevron_right</span>
+        </button>
       </div>
+      <p class="blog-error" data-blog-error hidden>
+        Couldn’t load Medium posts right now —
+        <a href="https://medium.com/@muhammednajeeb.ay" target="_blank" rel="noopener noreferrer">visit my profile</a>
+        to read more.
+      </p>
     </div>
   </section>
 
@@ -1000,6 +1014,12 @@
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
             <rect x="2" y="9" width="4" height="12"></rect>
             <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="https://medium.com/@muhammednajeeb.ay" class="social-link" target="_blank"
+          aria-label="Medium Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 17V7l6 7 6-7v10" />
           </svg>
         </a>
         <a href="mailto:muhammednajeeb.ay@gmail.com" class="social-link" aria-label="Send Email">

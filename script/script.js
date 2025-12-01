@@ -977,45 +977,222 @@ function setTypingTextAndAnimate(newText) {
   setTimeout(typeNextCharacter, 200);
 }
 
-// Fetch and apply external blog preview (Medium) using Microlink API
-document.addEventListener("DOMContentLoaded", () => {
+const MEDIUM_USERNAME = "muhammednajeeb.ay";
+const MEDIUM_RSS_URL = `https://medium.com/feed/@${MEDIUM_USERNAME}`;
+const MEDIUM_FEED_ENDPOINT = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
+  MEDIUM_RSS_URL
+)}`;
+const MAX_MEDIUM_POSTS = 12;
+
+async function loadMediumPosts() {
+  const track = document.querySelector("[data-blog-track]");
+  const errorEl = document.querySelector("[data-blog-error]");
+  const prevBtn = document.querySelector('[data-blog-nav="prev"]');
+  const nextBtn = document.querySelector('[data-blog-nav="next"]');
+
+  if (!track) return;
+
+  track.dataset.loading = "true";
+  if (errorEl) errorEl.hidden = true;
+  prevBtn?.setAttribute("disabled", "true");
+  nextBtn?.setAttribute("disabled", "true");
+
   try {
-    const blogCards = document.querySelectorAll(".blog-card[data-url]");
-    blogCards.forEach(async (card) => {
-      const url = card.getAttribute("data-url");
-      const imgEl = card.querySelector(".blog-image");
-      const titleEl = card.querySelector(".blog-title");
-      const excerptEl = card.querySelector(".blog-excerpt");
-      const badgeEl = card.querySelector(".badge.badge-medium");
+    const response = await fetch(MEDIUM_FEED_ENDPOINT);
+    if (!response.ok) {
+      throw new Error(`Medium feed request failed: ${response.status}`);
+    }
 
-      if (!url || !imgEl || !titleEl || !excerptEl) return;
+    const payload = await response.json();
+    const items = payload.items || [];
 
-      try {
-        const resp = await fetch(
-          `https://api.microlink.io/?url=${encodeURIComponent(url)}&meta=true`
-        );
-        if (!resp.ok) throw new Error("Preview fetch failed");
-        const json = await resp.json();
-        const data = json && json.data ? json.data : {};
+    if (!items.length) {
+      throw new Error("No Medium posts available");
+    }
 
-        if (data.image && data.image.url) {
-          imgEl.src = data.image.url;
-          imgEl.alt = data.title ? `${data.title} cover` : imgEl.alt;
-        }
-        if (data.title) {
-          titleEl.textContent = data.title;
-        }
-        if (data.description) {
-          excerptEl.textContent = data.description;
-        }
-        if (badgeEl && data.publisher) {
-          badgeEl.textContent = data.publisher;
-        }
-      } catch (err) {
-        console.warn("Blog preview fetch error:", err);
-      }
+    track.innerHTML = "";
+    items.slice(0, MAX_MEDIUM_POSTS).forEach((item) => {
+      track.appendChild(createMediumBlogCard(item));
     });
-  } catch (e) {
-    console.warn("Blog preview initialization error:", e);
+
+    setupBlogCarouselInteractions(track, prevBtn, nextBtn);
+  } catch (error) {
+    console.warn("Medium blog load failed:", error);
+    if (errorEl) {
+      errorEl.hidden = false;
+    }
+  } finally {
+    delete track.dataset.loading;
   }
+}
+
+function createMediumBlogCard(item) {
+  const title = (item.title || "Untitled post").trim();
+  const image = resolveMediumImage(item);
+  const readTime = estimateReadTime(item.content || item.description || "");
+  const dateLabel = formatMediumDate(item.pubDate);
+  const authorLabel = item.author || "Medium";
+
+  const card = document.createElement("article");
+  card.className = "blog-card";
+  card.setAttribute("role", "listitem");
+
+  const link = document.createElement("a");
+  link.className = "blog-link";
+  link.href = item.link;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+
+  const thumb = document.createElement("div");
+  thumb.className = "blog-thumb";
+
+  const img = document.createElement("img");
+  img.className = "blog-image";
+  img.loading = "lazy";
+  img.src = image;
+  img.alt = `${title} cover`;
+
+  const badge = document.createElement("span");
+  badge.className = "badge badge-medium";
+  badge.textContent = authorLabel;
+
+  thumb.appendChild(img);
+  thumb.appendChild(badge);
+
+  const content = document.createElement("div");
+  content.className = "blog-content";
+
+  const heading = document.createElement("h3");
+  heading.className = "blog-title";
+  heading.textContent = title;
+
+  const meta = document.createElement("div");
+  meta.className = "blog-meta";
+
+  const dateEl = document.createElement("span");
+  dateEl.className = "blog-date";
+  dateEl.textContent = dateLabel;
+
+  const dot = document.createElement("span");
+  dot.className = "blog-dot";
+  dot.textContent = "•";
+
+  const readEl = document.createElement("span");
+  readEl.className = "blog-read";
+  readEl.textContent = `${readTime} min read`;
+
+  meta.appendChild(dateEl);
+  meta.appendChild(dot);
+  meta.appendChild(readEl);
+
+  content.appendChild(heading);
+  content.appendChild(meta);
+
+  link.appendChild(thumb);
+  link.appendChild(content);
+
+  card.appendChild(link);
+  return card;
+}
+
+function resolveMediumImage(item) {
+  // 1) rss2json thumbnail
+  if (item.thumbnail && item.thumbnail.startsWith("http")) {
+    return item.thumbnail;
+  }
+
+  // 2) enclosure link
+  if (item.enclosure && item.enclosure.link && item.enclosure.link.startsWith("http")) {
+    return item.enclosure.link;
+  }
+
+  // 3) first <img> in HTML content/description
+  const html = item.content || item.description || "";
+  const imgMatch = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if (imgMatch && imgMatch[1]) {
+    return imgMatch[1];
+  }
+
+  // 4) fallback to local preview image
+  return "assets/preview.png";
+}
+
+function setupBlogCarouselInteractions(track, prevBtn, nextBtn) {
+  if (!track || track.dataset.carouselReady === "true") {
+    updateBlogNavState(track, prevBtn, nextBtn);
+    return;
+  }
+
+  const scrollByAmount = (direction) => {
+    const amount = getBlogScrollAmount(track) * direction;
+    track.scrollBy({ left: amount, behavior: "smooth" });
+  };
+
+  prevBtn?.addEventListener("click", () => scrollByAmount(-1));
+  nextBtn?.addEventListener("click", () => scrollByAmount(1));
+
+  track.addEventListener("scroll", () =>
+    updateBlogNavState(track, prevBtn, nextBtn)
+  );
+  window.addEventListener("resize", () =>
+    updateBlogNavState(track, prevBtn, nextBtn)
+  );
+
+  track.dataset.carouselReady = "true";
+  updateBlogNavState(track, prevBtn, nextBtn);
+}
+
+function updateBlogNavState(track, prevBtn, nextBtn) {
+  if (!track) return;
+  const maxScrollLeft = track.scrollWidth - track.clientWidth - 5;
+  if (prevBtn) {
+    prevBtn.disabled = track.scrollLeft <= 5;
+  }
+  if (nextBtn) {
+    nextBtn.disabled = track.scrollLeft >= maxScrollLeft;
+  }
+}
+
+function getBlogScrollAmount(track) {
+  if (!track) return 0;
+  const card = track.querySelector(".blog-card");
+  if (!card) return track.clientWidth;
+  const cardWidth = card.getBoundingClientRect().width;
+  const styles = window.getComputedStyle(track);
+  const gap =
+    parseFloat(styles.columnGap || styles.gap || styles.rowGap || "0") || 0;
+  return cardWidth + gap;
+}
+
+function stripHtml(value = "") {
+  const temp = document.createElement("div");
+  temp.innerHTML = value;
+  return temp.textContent || temp.innerText || "";
+}
+
+function truncateText(text, maxLength = 160) {
+  const clean = text.trim().replace(/\s+/g, " ");
+  if (clean.length <= maxLength) return clean;
+  return `${clean.slice(0, maxLength - 1).trim()}…`;
+}
+
+function estimateReadTime(text = "") {
+  const words = stripHtml(text)
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
+function formatMediumDate(value) {
+  if (!value) return "Recent";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "Recent";
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+  }).format(date);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadMediumPosts();
 });

@@ -1981,23 +1981,47 @@ body.light-mode .snackbar {
 
 /* Blog Section */
 .blog-section {
-  padding: 6rem 0 2rem;
+  padding: 2.5rem 0 4rem;
+  overflow: hidden;
 }
 .blog-section .section-title {
   margin-bottom: 1.5rem;
   font-size: 2rem;
 }
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+.section-title.section-title--standalone {
+  margin-bottom: 1.5rem;
+}
+.blog-carousel {
+  position: relative;
+  padding: 0 3.5rem;
+}
+.blog-track {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.5rem 0 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+.blog-track::-webkit-scrollbar {
+  height: 6px;
+}
+.blog-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+.blog-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
 }
 .blog-card {
   background: var(--card-dark);
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 0 0 clamp(280px, 30vw, 360px);
+  scroll-snap-align: start;
 }
 .blog-card:hover {
   transform: translateY(-4px);
@@ -2007,10 +2031,11 @@ body.light-mode .snackbar {
   display: block;
   color: inherit;
   text-decoration: none;
+  height: 100%;
 }
 .blog-thumb {
   position: relative;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   background: rgba(255, 255, 255, 0.04);
 }
 .blog-thumb img {
@@ -2023,7 +2048,7 @@ body.light-mode .snackbar {
   position: absolute;
   top: 12px;
   left: 12px;
-  background: #12100e;
+  background: rgba(18, 16, 14, 0.85);
   color: #fff;
   font-size: 12px;
   padding: 6px 10px;
@@ -2032,18 +2057,21 @@ body.light-mode .snackbar {
 }
 .blog-content {
   padding: 1rem 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
 }
 .blog-title {
   font-size: 1.125rem;
   line-height: 1.35;
-  margin-bottom: 0.5rem;
-}
-.blog-excerpt {
-  color: var(--text-dark);
-  opacity: 0.85;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
+  margin: 0;
+  min-height: 2.7rem;
+  max-height: 2.7rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }
 .blog-meta {
   display: flex;
@@ -2051,22 +2079,120 @@ body.light-mode .snackbar {
   gap: 0.5rem;
   color: #9fb3d4;
   font-size: 0.9rem;
+  margin-top: auto;
 }
 .blog-dot {
   opacity: 0.6;
+}
+.blog-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(10, 25, 47, 0.9);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+  z-index: 2;
+}
+.blog-nav[data-blog-nav="prev"] {
+  left: 0;
+}
+.blog-nav[data-blog-nav="next"] {
+  right: 0;
+}
+.blog-nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.blog-error {
+  margin-top: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+.blog-error a {
+  color: var(--secondary);
+  font-weight: 600;
+}
+.skeleton-card {
+  position: relative;
+  overflow: hidden;
+}
+.skeleton-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  animation: shimmer 1.6s infinite;
+}
+.skeleton-block {
+  width: 100%;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.05);
+}
+.skeleton-line {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+.skeleton-line--lg {
+  width: 80%;
+  height: 16px;
+}
+.skeleton-line--sm {
+  width: 60%;
+}
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 /* Light mode adjustments */
 body.light-mode .blog-card {
   background: var(--card-light);
 }
-body.light-mode .blog-excerpt {
-  color: var(--text-light);
-  opacity: 0.85;
-}
 body.light-mode .badge.badge-medium {
   background: var(--primary);
   color: var(--text-dark);
+}
+body.light-mode .blog-nav {
+  background: rgba(240, 255, 253, 0.9);
+  color: var(--primary);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+body.light-mode .blog-track::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+body.light-mode .blog-track {
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+
+@media (max-width: 1024px) {
+  .blog-carousel {
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .blog-carousel {
+    padding: 0;
+  }
+  .blog-nav {
+    display: none;
+  }
+  .blog-track {
+    margin: 0;
+  }
 }
 
 /* Mobile Menu Slide Animation */
