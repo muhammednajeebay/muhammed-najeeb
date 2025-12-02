@@ -652,19 +652,28 @@ window.addEventListener("load", () => {
   checkAnimations();
 });
 
-// Smooth Scrolling
+// Smooth Scrolling - Only for internal navigation links (not social links or external links)
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  // Skip social links and external links
+  if (anchor.closest('.hero-social-links') || 
+      anchor.closest('.social-links') || 
+      anchor.hasAttribute('target') ||
+      anchor.getAttribute('href') === '#') {
+    return;
+  }
+  
   anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-
     const targetId = this.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
-
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 100,
-        behavior: "smooth",
-      });
+    // Only prevent default for actual internal anchors (not just "#")
+    if (targetId && targetId !== '#' && targetId.startsWith('#')) {
+      e.preventDefault();
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 100,
+          behavior: "smooth",
+        });
+      }
     }
   });
 });
@@ -1249,26 +1258,26 @@ function populateHero(hero) {
   }
 
   // Social links (order: LinkedIn, GitHub, Medium, Email, Resume)
-  const socialLinks = document.querySelectorAll(
-    ".hero-social-links .social-link, .hero-social-links a[href^='mailto:']"
-  );
-  if (socialLinks.length >= 5 && hero.social) {
-    const [linkedinEl, githubEl, mediumEl, emailEl, resumeEl] = socialLinks;
-    if (linkedinEl && hero.social.linkedin) {
-      linkedinEl.href = hero.social.linkedin;
-    }
-    if (githubEl && hero.social.github) {
-      githubEl.href = hero.social.github;
-    }
-    if (mediumEl && hero.social.medium) {
-      mediumEl.href = hero.social.medium;
-    }
-    if (emailEl && hero.social.email) {
-      emailEl.href = `mailto:${hero.social.email}`;
-    }
-    if (resumeEl && hero.social.resume) {
-      resumeEl.href = hero.social.resume;
-    }
+  const socialLinksContainer = document.querySelector(".hero-social-links");
+  if (socialLinksContainer && hero.social) {
+    const allLinks = socialLinksContainer.querySelectorAll("a.social-link");
+    
+    // Find links by their aria-label or position
+    allLinks.forEach((link) => {
+      const ariaLabel = link.getAttribute("aria-label")?.toLowerCase() || "";
+      
+      if (ariaLabel.includes("linkedin") && hero.social.linkedin) {
+        link.href = hero.social.linkedin;
+      } else if (ariaLabel.includes("github") && hero.social.github) {
+        link.href = hero.social.github;
+      } else if (ariaLabel.includes("medium") && hero.social.medium) {
+        link.href = hero.social.medium;
+      } else if (ariaLabel.includes("email") && hero.social.email) {
+        link.href = `mailto:${hero.social.email}`;
+      } else if (ariaLabel.includes("resume") && hero.social.resume) {
+        link.href = hero.social.resume;
+      }
+    });
   }
 
   if (ctaEl && hero.cta) {
