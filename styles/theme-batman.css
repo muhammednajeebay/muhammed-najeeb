@@ -1,0 +1,122 @@
+body.batman-mode {
+  background-color: #000000;
+  color: #ffffff;
+  --secondary: #808080;
+  --bg-dark: #161616;
+  --text-dark: #ffffff;
+  --card-dark: #323232;
+  --accent: #ffffff;
+}
+body.batman-mode header {
+  background-color: transparent;
+}
+body.batman-mode header.scrolled {
+  background-color: rgba(22, 22, 22, 0.9) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+body.batman-mode .nav-link {
+  color: #ffffff;
+}
+body.batman-mode .nav-link::after {
+  background-color: #808080;
+}
+body.batman-mode .theme-toggle {
+  color: #ffffff;
+}
+body.batman-mode .logo {
+  color: #808080;
+}
+body.batman-mode .hero-subtitle {
+  color: #808080;
+}
+body.batman-mode .section-title::after {
+  background-color: rgba(128, 128, 128, 0.3);
+}
+body.batman-mode .skill-tag {
+  background-color: rgba(128, 128, 128, 0.1);
+  color: #808080;
+}
+body.batman-mode .category-title {
+  color: #808080;
+}
+body.batman-mode .skill-item::before {
+  color: #808080;
+}
+body.batman-mode .tab-button {
+  color: #ffffff;
+}
+body.batman-mode .tab-button.active {
+  color: #808080;
+}
+body.batman-mode .tab-button::after {
+  background-color: #808080;
+}
+body.batman-mode .job-company {
+  color: #808080;
+}
+body.batman-mode .job-description li::before {
+  color: #808080;
+}
+body.batman-mode .project-card {
+  background-color: #131313;
+}
+body.batman-mode .folder-icon {
+  color: #4f4f4f;
+}
+body.batman-mode .project-features li::before {
+  color: #808080;
+}
+body.batman-mode .material-chip {
+  background-color: rgba(128, 128, 128, 0.1);
+  color: #808080;
+}
+body.batman-mode .material-chip:hover {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+body.batman-mode .contact-right {
+  background-color: #131313;
+}
+body.batman-mode .contact-subtitle {
+  color: #808080;
+}
+body.batman-mode .form-group input,
+body.batman-mode .form-group textarea {
+  background-color: rgba(34, 34, 34, 0.05);
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  color: #ffffff;
+}
+body.batman-mode .btn-submit {
+  background-color: #313131;
+  color: #1a1a1a;
+}
+body.batman-mode .btn-submit:hover {
+  background-color: #999999;
+}
+body.batman-mode .social-link {
+  color: #ffffff;
+}
+body.batman-mode .social-link:hover {
+  color: #808080;
+}
+body.batman-mode .footer-text a {
+  color: #808080;
+}
+body.batman-mode .cursor-follower {
+  border-color: #808080;
+}
+body.batman-mode svg path {
+  fill: #808080;
+  stroke: #808080;
+}
+body.batman-mode .flutter-icon svg path {
+  fill: #ffffff;
+  stroke: #808080;
+  opacity: 0.3;
+}
+body.batman-mode .blog-card {
+  background: #2a2a2a;
+}
+body.batman-mode .blog-excerpt {
+  color: #ffffff;
+  opacity: 0.85;
+}

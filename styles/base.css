@@ -1,0 +1,137 @@
+:root {
+  --primary: #0a192f;
+  --secondary-dark: #3ad2af;
+  --secondary-light: #048b6c;
+  --secondary: var(--secondary-dark);
+  --accent: #1cffff;
+  --bg-dark: #0f0e17;
+  --bg-light: #f0fffd;
+  --text-dark: #e6f1ff;
+  --text-light: #0a192f;
+  --text-light-secondary: #334155;
+  --card-dark: #112240cc;
+  --card-light: #c8dad7;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  transition: var(--transition);
+  overflow-x: hidden;
+}
+
+body.light-mode {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  --secondary: var(--secondary-light);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Silkscreen", cursive;
+  letter-spacing: 1px;
+}
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: rgba(100, 255, 218, 0.3);
+  margin-left: 1rem;
+}
+.light-mode .section-title {
+  color: var(--text-light);
+}
+.light-mode .section-title::after {
+  background-color: rgba(4, 139, 108, 0.3);
+}
+footer {
+  padding: 2rem 0;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.social-link {
+  color: var(--text-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  background: none;
+}
+.light-mode .social-link {
+  color: var(--text-light);
+}
+.social-link svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  background: transparent;
+}
+.social-link svg * {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.light-mode .social-link svg path {
+  fill: none;
+  stroke: var(--text-light);
+  stroke-width: 2;
+  animation: none;
+}
+.light-mode .social-link:hover svg path {
+  stroke: var(--secondary);
+}
+.light-mode .social-link .material-icons-outlined {
+  color: var(--text-light);
+}
+.light-mode .social-link:hover .material-icons-outlined {
+  color: var(--secondary);
+}
+.social-link:hover {
+  color: var(--secondary);
+  transform: translateY(-3px);
+}
+.social-link:hover svg {
+  stroke: var(--secondary);
+}
+.footer-text {
+  margin-top: 1rem;
+}
+.footer-text a {
+  color: var(--secondary);
+  text-decoration: none;
+}

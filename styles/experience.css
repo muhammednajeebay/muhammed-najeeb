@@ -1,0 +1,83 @@
+.experience {
+  padding: 8rem 0;
+  position: relative;
+}
+.experience-tabs {
+  display: flex;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid rgba(100, 255, 218, 0.1);
+}
+.tab-button {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  font-family: "Silkscreen", cursive;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+}
+.light-mode .tab-button {
+  color: var(--text-light);
+}
+.tab-button.active {
+  color: var(--secondary);
+}
+.tab-button::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary);
+  transition: var(--transition);
+}
+.tab-button.active::after {
+  width: 100%;
+}
+.tab-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+}
+.tab-content.active {
+  display: block;
+  animation: fadeInUp 0.8s forwards;
+}
+.job-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+.light-mode .job-title {
+  color: var(--text-light);
+}
+.job-company {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+  font-family: "Silkscreen", cursive;
+}
+.job-duration {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+.job-description ul {
+  list-style: none;
+}
+.job-description li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+.job-description li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--secondary);
+}

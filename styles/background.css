@@ -1,0 +1,71 @@
+.cursor-follower {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--secondary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 0.1s, opacity 0.3s;
+  z-index: 9999;
+  opacity: 0.7;
+  mix-blend-mode: difference;
+}
+.bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+svg path {
+  stroke: var(--secondary);
+  stroke-width: 15px;
+  fill: var(--secondary);
+  fill-opacity: 0.2;
+  stroke-width: 15px;
+  animation: svgFillReveal 1.2s ease alternate-reverse;
+  animation-delay: 0.2s;
+  transition: fill 0.3s ease;
+}
+.light-mode svg path {
+  fill: var(--secondary);
+  fill-opacity: 0.6;
+  stroke-width: 25px;
+  animation: svgFillReveal 1.5s ease alternate;
+  animation-delay: 0.2s;
+  transition: fill 0.3s ease;
+}
+.flutter-icon {
+  position: absolute;
+  opacity: 0.1;
+  transform-origin: center;
+  transition: transform 0.5s ease-out, opacity 0.5s ease;
+  mix-blend-mode: exclusion;
+}
+.material-icon {
+  position: absolute;
+  opacity: 0.08;
+  transform-origin: center;
+  transition: transform 0.5s ease-out, opacity 0.5s ease;
+  mix-blend-mode: exclusion;
+}
+.invert-circle {
+  position: fixed;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.03);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+@media (max-width: 992px) {
+  .cursor-follower,
+  .invert-circle {
+    display: none !important;
+  }
+}
