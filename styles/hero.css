@@ -163,6 +163,19 @@
   height: auto;
   max-width: 400px;
 }
+.hero-social-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.cta-button .material-icons-outlined {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+.hero-title + .hero-title {
+  color: var(--secondary);
+}
 .hero .about-image {
   display: flex;
   justify-content: center;
