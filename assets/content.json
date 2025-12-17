@@ -112,17 +112,22 @@
     {
       "title": "Integration",
       "icon": "cloud",
-      "items": ["REST API", "GraphQL", "Firebase (Auth, Firestore, CLI, Realtime)", "WebSockets", "VideoSDK", "Http & Dio"]
+      "items": ["REST API", "GraphQL", "Firebase","Supabase", "WebSockets", "VideoSDK", "Http & Dio"]
     },
     {
       "title": "Data Storage",
       "icon": "storage",
-      "items": ["Hive", "SharedPreferences", "Sqflite"]
+      "items": ["Hive", "SharedPreferences", "Sqflite","ISAR","Firebase"]
     },
     {
       "title": "Tools",
       "icon": "build",
-      "items": ["Git & GitHub", "Postman", "Android Studio", "Visual Studio Code"]
+      "items": ["Git & GitHub", "Postman", "Android Studio", "VS Code"]
+    },
+    {
+      "title": "Others",
+      "icon": "more_horiz",
+      "items": ["Unit & Widget Testing", "CI/CD", "GitHub Actions", "Flutter DevTools", "Rive Animations", "Lottie Animations"]
     }
   ],
   "projects": [

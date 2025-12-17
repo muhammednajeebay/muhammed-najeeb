@@ -1374,64 +1374,66 @@ function populateExperience(experiences) {
 }
 
 function populateSkills(skills) {
-  if (!Array.isArray(skills)) return;
-  const container = document.querySelector(".skills-container");
-  if (!container) return;
-
-  const fragments = skills
-    .map((skill) => {
-      const icon = skill.icon || "code";
-      const label = skill.label || "";
-      return `
-        <div class="skill-tag fade-in">
-          <span class="material-icons">${icon}</span>
-          ${label}
-        </div>
-      `;
-    })
-    .join("");
-
-  container.innerHTML = fragments;
+  // This function is now deprecated in favor of populateSkillCategories
+  // Keep it for backward compatibility but it won't be used
 }
 
 function populateSkillCategories(categories) {
   if (!Array.isArray(categories)) return;
-  const container = document.querySelector("[data-skill-categories]");
-  if (!container) return;
+  
+  const terminalOutput = document.getElementById('terminal-output');
+  const terminalTabs = document.querySelectorAll('.terminal-tab');
+  const activeCategorySpan = document.querySelector('.active-category');
+  
+  if (!terminalOutput || !terminalTabs.length) return;
 
-  const fragment = document.createDocumentFragment();
+  // Store categories data globally for tab switching
+  window.skillCategoriesData = categories;
 
-  categories.forEach((cat) => {
-    const wrapper = document.createElement("div");
-    wrapper.className = "skill-category fade-in";
+  // Function to display skills for a specific category
+  function displayCategory(categoryName) {
+    const category = categories.find(cat => cat.title === categoryName);
+    if (!category) return;
 
-    const heading = document.createElement("h3");
-    heading.className = "category-title";
-    const iconSpan = document.createElement("span");
-    iconSpan.className = "material-icons";
-    iconSpan.textContent = cat.icon || "code";
-    heading.appendChild(iconSpan);
-    heading.append(` ${cat.title || ""}`);
-
-    const grid = document.createElement("div");
-    grid.className = "skills-grid";
-
-    if (Array.isArray(cat.items)) {
-      cat.items.forEach((item) => {
-        const div = document.createElement("div");
-        div.className = "skill-item";
-        div.textContent = item;
-        grid.appendChild(div);
-      });
+    // Update the prompt command
+    if (activeCategorySpan) {
+      activeCategorySpan.textContent = categoryName;
     }
 
-    wrapper.appendChild(heading);
-    wrapper.appendChild(grid);
-    fragment.appendChild(wrapper);
+    // Clear and populate terminal output
+    terminalOutput.innerHTML = '';
+    
+    if (Array.isArray(category.items)) {
+      category.items.forEach((item, index) => {
+        const skillDiv = document.createElement('div');
+        skillDiv.className = 'skill-item-terminal';
+        skillDiv.textContent = item;
+        skillDiv.style.animationDelay = `${index * 0.05}s`;
+        terminalOutput.appendChild(skillDiv);
+      });
+    }
+  }
+
+  // Add click event listeners to tabs
+  terminalTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active class from all tabs
+      terminalTabs.forEach(t => t.classList.remove('active'));
+      
+      // Add active class to clicked tab
+      tab.classList.add('active');
+      
+      // Get category name and display skills
+      const categoryName = tab.getAttribute('data-category');
+      displayCategory(categoryName);
+    });
   });
 
-  container.innerHTML = "";
-  container.appendChild(fragment);
+  // Display the first category by default (Development)
+  const firstCategory = categories[0];
+  if (firstCategory) {
+    displayCategory(firstCategory.title);
+  }
 }
 
 function populateProjects(projects) {

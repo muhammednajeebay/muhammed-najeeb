@@ -155,8 +155,7 @@
         </h2>
         <p class="hero-description"></p>
         <div class="hero-social-links" style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
-          <a href="#" class="social-link" target="_blank"
-            aria-label="LinkedIn profile"
+          <a href="#" class="social-link" target="_blank" aria-label="LinkedIn profile"
             style="display: flex; align-items: center; color: var(--secondary); transition: color 0.3s; text-decoration: none;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -174,11 +173,10 @@
               </path>
             </svg>
           </a>
-          <a href="#" class="social-link" target="_blank"
-            aria-label="Medium profile"
+          <a href="#" class="social-link" target="_blank" aria-label="Medium profile"
             style="display: flex; align-items: center; color: var(--secondary); transition: color 0.3s; text-decoration: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M6 17V7l6 7 6-7v10" />
             </svg>
           </a>
@@ -190,8 +188,7 @@
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
           </a>
-          <a href="#" class="social-link"
-            target="_blank" aria-label="Download resume"
+          <a href="#" class="social-link" target="_blank" aria-label="Download resume"
             style="display: flex; align-items: center; color: var(--secondary); transition: color 0.3s; text-decoration: none;">
             <span class="material-icons-outlined" style="font-size: 1.5rem;">description</span>
           </a>
@@ -274,7 +271,7 @@
       <h2 class="section-title fade-in">About Me</h2>
       <div class="about-content">
         <div class="about-text fade-in">
-          
+
         </div>
 
       </div>
@@ -292,16 +289,45 @@
   </section>
 
 
-  <!-- Skills Section - Simplified -->
+  <!-- Skills Section - Terminal Style -->
   <section class="skills" id="skills">
     <div class="container">
       <h2 class="section-title fade-in">My Skills</h2>
 
-      <!-- Skills Tags (filled dynamically from JSON) -->
-      <div class="skills-container"></div>
+      <!-- Terminal Window -->
+      <div class="terminal-window fade-in">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+          <div class="terminal-controls">
+            <span class="terminal-btn close"></span>
+            <span class="terminal-btn minimize"></span>
+            <span class="terminal-btn maximize"></span>
+          </div>
+          <div class="terminal-title">skills.sh</div>
+        </div>
 
-      <!-- Skill Categories -->
-      <!-- <div class="skill-categories" data-skill-categories></div> -->
+        <!-- Terminal Tabs -->
+        <div class="terminal-tabs">
+          <button class="terminal-tab active" data-category="Development">Development</button>
+          <button class="terminal-tab" data-category="Architecture">Architecture</button>
+          <button class="terminal-tab" data-category="Integration">Integration</button>
+          <button class="terminal-tab" data-category="Data Storage">Data Storage</button>
+          <button class="terminal-tab" data-category="Tools">Tools</button>
+          <button class="terminal-tab" data-category="Others">Others</button>
+        </div>
+
+        <!-- Terminal Content -->
+        <div class="terminal-content">
+          <div class="terminal-prompt">
+            <span class="prompt-user">najeeb@portfolio</span>:<span class="prompt-path">~</span>$ <span
+              class="prompt-command">cat skills/<span class="active-category">Development</span></span>
+          </div>
+          <div class="terminal-output" id="terminal-output">
+            <!-- Skills will be populated here dynamically -->
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </section>
@@ -347,8 +373,7 @@
           <div class="project-top">
             <span class="material-icons folder-icon">folder</span>
             <div class="project-actions">
-              <a href="#" class="social-link" target="_blank"
-                aria-label="GitHub profile">
+              <a href="#" class="social-link" target="_blank" aria-label="GitHub profile">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path
@@ -368,7 +393,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -378,11 +403,10 @@
           <div class="project-top">
             <span class="material-icons folder-icon">folder</span>
             <div class="project-actions">
-              <a href="#" target="_blank" rel="noopener noreferrer"
-                class="material-chip" aria-label="View on Pub.dev (opens in a new tab)">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="material-chip"
+                aria-label="View on Pub.dev (opens in a new tab)">
               </a>
-              <a href="#" class="social-link" target="_blank"
-                aria-label="GitHub profile">
+              <a href="#" class="social-link" target="_blank" aria-label="GitHub profile">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path
@@ -403,7 +427,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -413,11 +437,10 @@
           <div class="project-top">
             <span class="material-icons folder-icon">folder</span>
             <div class="project-actions">
-              <a href="#" target="_blank" rel="noopener noreferrer"
-                class="material-chip" aria-label="View Live Demo (opens in a new tab)">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="material-chip"
+                aria-label="View Live Demo (opens in a new tab)">
               </a>
-              <a href="#" class="social-link" target="_blank"
-                aria-label="GitHub repository">
+              <a href="#" class="social-link" target="_blank" aria-label="GitHub repository">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path
@@ -437,7 +460,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -456,7 +479,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -475,7 +498,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -494,7 +517,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -513,7 +536,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -532,7 +555,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -551,7 +574,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -570,7 +593,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -589,7 +612,7 @@
             <ul></ul>
           </div>
           <div class="project-tech">
-            
+
           </div>
         </div>
 
@@ -704,8 +727,7 @@
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
         </a>
-        <a href="https://medium.com/@muhammednajeeb.ay" class="social-link" target="_blank"
-          aria-label="Medium Profile">
+        <a href="https://medium.com/@muhammednajeeb.ay" class="social-link" target="_blank" aria-label="Medium Profile">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 17V7l6 7 6-7v10" />
           </svg>
@@ -724,7 +746,7 @@
       </div>
       <p class="footer-text">
         © 2025 — Designed and engineered by <a href="#">Muhammed Najeeb A Y</a>
-      </p>      
+      </p>
     </div>
   </footer>
 
