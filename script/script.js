@@ -836,32 +836,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function animateSkillTags() {
-  const skillTags = document.querySelectorAll(".skill-tag");
-  skillTags.forEach((tag, index) => {
-    setTimeout(() => {
-      tag.style.opacity = "1";
-      tag.style.transform = "translateY(0)";
-    }, index * 100);
-  });
-}
-
-// Trigger skill tags animation when they come into view
-const skillsSection = document.querySelector(".skills");
-const skillsObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        animateSkillTags();
-        skillsObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
-
-skillsObserver.observe(skillsSection);
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".contact-form");
   const snackbar = document.getElementById("snackbar");
@@ -1227,7 +1201,6 @@ async function loadPortfolioContent() {
     populateAbout(data.about);
     populateValuesGoals(data.valuesGoals);
     populateExperience(data.experience);
-    populateSkills(data.skills);
     populateSkillCategories(data.skillCategories);
     populateProjects(data.projects);
   } catch (error) {
@@ -1373,11 +1346,6 @@ function populateExperience(experiences) {
   });
 }
 
-function populateSkills(skills) {
-  // This function is now deprecated in favor of populateSkillCategories
-  // Keep it for backward compatibility but it won't be used
-}
-
 function populateSkillCategories(categories) {
   if (!Array.isArray(categories)) return;
   
@@ -1387,49 +1355,35 @@ function populateSkillCategories(categories) {
   
   if (!terminalOutput || !terminalTabs.length) return;
 
-  // Store categories data globally for tab switching
-  window.skillCategoriesData = categories;
-
-  // Function to display skills for a specific category
   function displayCategory(categoryName) {
     const category = categories.find(cat => cat.title === categoryName);
     if (!category) return;
-
-    // Update the prompt command
     if (activeCategorySpan) {
       activeCategorySpan.textContent = categoryName;
     }
-
-    // Clear and populate terminal output
     terminalOutput.innerHTML = '';
-    
     if (Array.isArray(category.items)) {
-      category.items.forEach((item, index) => {
+      const frag = document.createDocumentFragment();
+      for (let i = 0; i < category.items.length; i += 1) {
         const skillDiv = document.createElement('div');
         skillDiv.className = 'skill-item-terminal';
-        skillDiv.textContent = item;
-        skillDiv.style.animationDelay = `${index * 0.05}s`;
-        terminalOutput.appendChild(skillDiv);
-      });
+        skillDiv.textContent = category.items[i];
+        skillDiv.style.animationDelay = `${i * 0.05}s`;
+        frag.appendChild(skillDiv);
+      }
+      terminalOutput.appendChild(frag);
     }
   }
 
-  // Add click event listeners to tabs
   terminalTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      // Remove active class from all tabs
       terminalTabs.forEach(t => t.classList.remove('active'));
-      
-      // Add active class to clicked tab
       tab.classList.add('active');
-      
-      // Get category name and display skills
       const categoryName = tab.getAttribute('data-category');
       displayCategory(categoryName);
     });
   });
 
-  // Display the first category by default (Development)
   const firstCategory = categories[0];
   if (firstCategory) {
     displayCategory(firstCategory.title);
