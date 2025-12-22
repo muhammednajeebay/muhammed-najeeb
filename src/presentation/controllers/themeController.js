@@ -61,7 +61,19 @@ const setIconsForTheme = (isDark) => {
     });
 };
 
+const runGlitchOverlay = () => {
+  const existing = document.querySelector(".glitch-overlay");
+  if (existing) existing.remove();
+  const overlay = document.createElement("div");
+  overlay.className = "glitch-overlay";
+  overlay.addEventListener("animationend", () => {
+    overlay.remove();
+  });
+  body.appendChild(overlay);
+};
+
 export const activateBatmanMode = () => {
+  runGlitchOverlay();
   body.classList.add("batman-mode");
   body.classList.remove("light-mode");
   setIconsForTheme(true);
@@ -85,11 +97,13 @@ export const activateBatmanMode = () => {
 };
 
 export const exitBatmanMode = () => {
+  runGlitchOverlay();
   body.classList.remove("batman-mode");
   const isDark = !body.classList.contains("light-mode");
   setIconsForTheme(isDark);
   updateThemeColor(isDark);
   setThemePreference(isDark ? "dark" : "light");
+  animateHeroSvg();
   const header = document.querySelector("header");
   if (header && window.scrollY > 50) {
     header.style.backgroundColor = body.classList.contains("light-mode")
@@ -114,11 +128,13 @@ export const toggleTheme = () => {
     exitBatmanMode();
     return;
   }
+  runGlitchOverlay();
   body.classList.toggle("light-mode");
   const isDark = !body.classList.contains("light-mode");
   setIconsForTheme(isDark);
   updateThemeColor(isDark);
   setThemePreference(isDark ? "dark" : "light");
+  animateHeroSvg();
 };
 
 export const initThemeOnLoad = () => {
@@ -149,4 +165,5 @@ export const initThemeOnLoad = () => {
       updateThemeColor(true);
     }
   }
+  animateHeroSvg();
 };
