@@ -61,19 +61,66 @@ const setIconsForTheme = (isDark) => {
     });
 };
 
-const runGlitchOverlay = () => {
-  const existing = document.querySelector(".glitch-overlay");
+const runBlockSpreadAnimation = (buttonElement) => {
+  // Remove any existing overlay
+  const existing = document.querySelector(".theme-transition-overlay");
   if (existing) existing.remove();
+
+  // Create overlay container
   const overlay = document.createElement("div");
-  overlay.className = "glitch-overlay";
-  overlay.addEventListener("animationend", () => {
-    overlay.remove();
-  });
+  overlay.className = "theme-transition-overlay";
+
+  // Get button position for animation origin
+  let originX = window.innerWidth / 2;
+  let originY = window.innerHeight / 2;
+  
+  if (buttonElement) {
+    const rect = buttonElement.getBoundingClientRect();
+    originX = rect.left + rect.width / 2;
+    originY = rect.top + rect.height / 2;
+  }
+
+  // Create grid of blocks (20x20 = 400 blocks)
+  const gridSize = 20;
+  const blocks = [];
+  
+  for (let i = 0; i < gridSize * gridSize; i++) {
+    const block = document.createElement("div");
+    block.className = "theme-transition-block";
+    
+    // Calculate block position
+    const row = Math.floor(i / gridSize);
+    const col = i % gridSize;
+    const blockX = (col + 0.5) * (window.innerWidth / gridSize);
+    const blockY = (row + 0.5) * (window.innerHeight / gridSize);
+    
+    // Calculate distance from origin
+    const dx = blockX - originX;
+    const dy = blockY - originY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const maxDistance = Math.sqrt(
+      window.innerWidth * window.innerWidth + 
+      window.innerHeight * window.innerHeight
+    );
+    
+    // Stagger animation based on distance
+    const delay = (distance / maxDistance) * 400; // Max 400ms delay
+    block.style.animationDelay = `${delay}ms`;
+    
+    blocks.push(block);
+    overlay.appendChild(block);
+  }
+
   body.appendChild(overlay);
+
+  // Remove overlay after animation completes
+  setTimeout(() => {
+    overlay.remove();
+  }, 1000); // 600ms animation + 400ms max delay
 };
 
-export const activateBatmanMode = () => {
-  runGlitchOverlay();
+export const activateBatmanMode = (buttonElement) => {
+  runBlockSpreadAnimation(buttonElement);
   body.classList.add("batman-mode");
   body.classList.remove("light-mode");
   setIconsForTheme(true);
@@ -96,8 +143,8 @@ export const activateBatmanMode = () => {
   }, 2500);
 };
 
-export const exitBatmanMode = () => {
-  runGlitchOverlay();
+export const exitBatmanMode = (buttonElement) => {
+  runBlockSpreadAnimation(buttonElement);
   body.classList.remove("batman-mode");
   const isDark = !body.classList.contains("light-mode");
   setIconsForTheme(isDark);
@@ -123,12 +170,12 @@ export const exitBatmanMode = () => {
   setTypingTextAndAnimate("I build things for mobile.");
 };
 
-export const toggleTheme = () => {
+export const toggleTheme = (buttonElement) => {
   if (body.classList.contains("batman-mode")) {
-    exitBatmanMode();
+    exitBatmanMode(buttonElement);
     return;
   }
-  runGlitchOverlay();
+  runBlockSpreadAnimation(buttonElement);
   body.classList.toggle("light-mode");
   const isDark = !body.classList.contains("light-mode");
   setIconsForTheme(isDark);

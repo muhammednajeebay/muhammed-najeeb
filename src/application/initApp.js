@@ -54,7 +54,7 @@ export const startApp = () => {
         }
       }
     });
-  document.addEventListener("exit-batman", () => exitBatmanMode());
+  document.addEventListener("exit-batman", () => exitBatmanMode(null));
   const api = { toggleTheme, activateBatmanMode };
   window.__portfolioAPI__ = api;
 };

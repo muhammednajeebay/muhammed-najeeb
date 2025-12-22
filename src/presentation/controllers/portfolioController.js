@@ -222,12 +222,12 @@ export const initPortfolio = async () => {
 export const bindThemeButtons = () => {
   const themeToggle = document.getElementById("theme-toggle");
   const mobileThemeToggle = document.querySelector(".mobile-theme-toggle");
-  themeToggle?.addEventListener("click", () => toggleTheme());
+  themeToggle?.addEventListener("click", (e) => toggleTheme(e.currentTarget));
   themeToggle?.addEventListener("touchend", (e) => {
-    toggleTheme();
+    toggleTheme(e.currentTarget);
     e.preventDefault();
   });
-  mobileThemeToggle?.addEventListener("click", () => toggleTheme());
+  mobileThemeToggle?.addEventListener("click", (e) => toggleTheme(e.currentTarget));
   const logo = document.querySelector(".logo");
   if (logo) {
     logo.addEventListener("click", () => {
@@ -236,7 +236,7 @@ export const bindThemeButtons = () => {
         const ev = new CustomEvent("exit-batman");
         document.dispatchEvent(ev);
       } else {
-        activateBatmanMode();
+        activateBatmanMode(logo);
       }
     });
   }
