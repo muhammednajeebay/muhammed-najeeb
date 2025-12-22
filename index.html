@@ -361,260 +361,28 @@
   <section class="projects" id="projects">
     <div class="container">
       <h2 class="section-title fade-in">Some Things I've Built</h2>
-      <div class="projects-grid">
+      <!-- Projects Carousel -->
+      <div class="projects-carousel">
+        <button class="carousel-nav carousel-prev" aria-label="Previous project">
+          <span class="material-icons">chevron_left</span>
+        </button>
 
-        <!-- Project : Task Matrix (structure only, content from JSON) -->
-        <div class="project-card">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-            <div class="project-actions">
-              <a href="#" class="social-link" target="_blank" aria-label="GitHub profile">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                  </path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
+        <div class="projects-track-container">
+          <div class="projects-track">
+            <!-- Project cards will be generated dynamically from content.json -->
           </div>
         </div>
 
-
-        <!-- Project : ResponsiveText Plus (structure only, content from JSON) -->
-        <div class="project-card">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-            <div class="project-actions">
-              <a href="#" target="_blank" rel="noopener noreferrer" class="material-chip"
-                aria-label="View on Pub.dev (opens in a new tab)">
-              </a>
-              <a href="#" class="social-link" target="_blank" aria-label="GitHub profile">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                  </path>
-                </svg>
-              </a>
-
-            </div>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
-          </div>
-        </div>
-
-
-        <!-- Project : Flutter Portfolio (structure only, content from JSON) -->
-        <div class="project-card">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-            <div class="project-actions">
-              <a href="#" target="_blank" rel="noopener noreferrer" class="material-chip"
-                aria-label="View Live Demo (opens in a new tab)">
-              </a>
-              <a href="#" class="social-link" target="_blank" aria-label="GitHub repository">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                  </path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
-          </div>
-        </div>
-
-        <!-- Project : ERP Software (structure only, content from JSON) -->
-        <div class="project-card hidden-project">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
-          </div>
-        </div>
-
-        <!-- Project : Learning Management System (LMS) (structure only, content from JSON) -->
-        <div class="project-card hidden-project">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
-          </div>
-        </div>
-
-        <!-- Project : Event ERP (structure only, content from JSON) -->
-        <div class="project-card hidden-project">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
-          </div>
-        </div>
-
-        <!-- Project : DIGIBANK (structure only, content from JSON) -->
-        <div class="project-card hidden-project">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
-          </div>
-        </div>
-
-        <!-- Project : YUMMLY (structure only, content from JSON) -->
-        <div class="project-card hidden-project">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
-          </div>
-        </div>
-
-        <!-- Project : Placement Assistance App (structure only, content from JSON) -->
-        <div class="project-card hidden-project">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
-          </div>
-        </div>
-
-        <!-- Project : News Hunt (structure only, content from JSON) -->
-        <div class="project-card hidden-project">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
-          </div>
-        </div>
-
-        <!-- Project : Quiz App (structure only, content from JSON) -->
-        <div class="project-card hidden-project">
-          <div class="project-top">
-            <span class="material-icons folder-icon">folder</span>
-          </div>
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <button class="project-features-toggle" aria-label="Toggle features">
-            <span class="toggle-text">Show More</span>
-            <span class="material-icons toggle-icon">expand_more</span>
-          </button>
-          <div class="project-features collapsed">
-            <ul></ul>
-          </div>
-          <div class="project-tech">
-
-          </div>
-        </div>
-
+        <button class="carousel-nav carousel-next" aria-label="Next project">
+          <span class="material-icons">chevron_right</span>
+        </button>
       </div>
 
-      <!-- Load More Button -->
-      <div class="load-more-container">
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators"></div>
+
+      <!-- Load More Button (hidden for carousel) -->
+      <div class="load-more-container" style="display: none;">
         <button class="load-more-btn" id="load-more-btn">
           <span>Load More</span>
           <span class="material-icons">expand_more</span>
@@ -705,7 +473,7 @@
     <div class="container">
       <!-- In your footer section -->
       <div class="social-links">
-        <a href="https://github.com/muhammednajeebay" class="social-link" target="_blank" aria-label="GitHub Profile">
+        <a href="#" class="social-link" target="_blank" aria-label="GitHub Profile">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path
@@ -713,8 +481,7 @@
             </path>
           </svg>
         </a>
-        <a href="https://www.linkedin.com/in/muhammednajeebay" class="social-link" target="_blank"
-          aria-label="LinkedIn Profile">
+        <a href="#" class="social-link" target="_blank" aria-label="LinkedIn Profile">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -722,20 +489,19 @@
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
         </a>
-        <a href="https://medium.com/@muhammednajeeb.ay" class="social-link" target="_blank" aria-label="Medium Profile">
+        <a href="#" class="social-link" target="_blank" aria-label="Medium Profile">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 17V7l6 7 6-7v10" />
           </svg>
         </a>
-        <a href="mailto:muhammednajeeb.ay@gmail.com" class="social-link" aria-label="Send Email">
+        <a href="#" class="social-link" aria-label="Send Email">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
           </svg>
         </a>
-        <a href="https://drive.google.com/file/d/1915hQfy0w91T7Mv6WcDaWNWHvQ8UEpLL/view" class="social-link"
-          target="_blank" aria-label="Download Resume" style="text-decoration: none;">
+        <a href="#" class="social-link" target="_blank" aria-label="Download Resume" style="text-decoration: none;">
           <span class="material-icons-outlined" style="font-size: 1.5rem;">description</span>
         </a>
       </div>

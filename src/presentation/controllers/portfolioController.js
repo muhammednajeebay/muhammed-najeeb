@@ -1,5 +1,6 @@
 import { fetchPortfolioContent } from "../../infrastructure/http/portfolio.js";
 import { activateBatmanMode, toggleTheme } from "./themeController.js";
+import { populateProjects } from "./projectsController.js";
 
 const setTypingTextAndAnimate = (text) => {
   const el = document.querySelector(".typing-text");
@@ -145,66 +146,25 @@ const populateSkillCategories = (categories) => {
   if (first) displayCategory(first.title);
 };
 
-const populateProjects = (projects) => {
-  if (!Array.isArray(projects)) return;
-  const cards = document.querySelectorAll(".projects .project-card");
-  if (!cards.length) return;
-  cards.forEach((card, index) => {
-    const project = projects[index];
-    if (!project) return;
-    const titleEl = card.querySelector(".project-title");
-    const descEl = card.querySelector(".project-description");
-    const featuresList = card.querySelector(".project-features ul");
-    const techContainer = card.querySelector(".project-tech");
-    const actionsContainer = card.querySelector(".project-actions");
-    if (titleEl && project.title) titleEl.textContent = project.title;
-    if (descEl && project.description) descEl.textContent = project.description;
-    if (featuresList && Array.isArray(project.features)) {
-      featuresList.innerHTML = "";
-      project.features.forEach((f) => {
-        const li = document.createElement("li");
-        li.textContent = f;
-        featuresList.appendChild(li);
-      });
-    }
-    if (techContainer && Array.isArray(project.tech)) {
-      techContainer.innerHTML = "";
-      project.tech.forEach((t) => {
-        const chip = document.createElement("div");
-        chip.className = "material-chip";
-        chip.textContent = t;
-        techContainer.appendChild(chip);
-      });
-    }
-    if (actionsContainer && project.links) {
-      const { github, live, pub } = project.links;
-      if (github) {
-        const gh =
-          actionsContainer.querySelector("a[aria-label*='GitHub']") ||
-          actionsContainer.querySelector("a[href*='github.com']");
-        if (gh) gh.href = github;
-      }
-      if (live) {
-        const ll =
-          actionsContainer.querySelector("a[aria-label*='Live']") ||
-          actionsContainer.querySelector(".material-chip");
-        if (ll) {
-          ll.href = live;
-          if (!ll.textContent.trim()) ll.textContent = "Live";
-        }
-      }
-      if (pub) {
-        const pl =
-          actionsContainer.querySelector("a[aria-label*='Pub.dev']") ||
-          actionsContainer.querySelector(".material-chip");
-        if (pl) {
-          pl.href = pub;
-          if (!pl.textContent.trim()) pl.textContent = "Pub.dev";
-        }
-      }
+const populateFooter = (social) => {
+  if (!social) return;
+  const footerLinks = document.querySelectorAll("footer .social-links a.social-link");
+  footerLinks.forEach((link) => {
+    const ariaLabel = link.getAttribute("aria-label")?.toLowerCase() || "";
+    if (ariaLabel.includes("linkedin") && social.linkedin) {
+      link.href = social.linkedin;
+    } else if (ariaLabel.includes("github") && social.github) {
+      link.href = social.github;
+    } else if (ariaLabel.includes("medium") && social.medium) {
+      link.href = social.medium;
+    } else if (ariaLabel.includes("email") && social.email) {
+      link.href = `mailto:${social.email}`;
+    } else if (ariaLabel.includes("resume") && social.resume) {
+      link.href = social.resume;
     }
   });
 };
+
 
 export const initPortfolio = async () => {
   try {
@@ -216,6 +176,7 @@ export const initPortfolio = async () => {
     populateExperience(data.experience);
     populateSkillCategories(data.skillCategories);
     populateProjects(data.projects);
+    populateFooter(data.hero?.social);
   } catch {}
 };
 
