@@ -69,7 +69,7 @@
 }
 
 .theme-transition-block {
-  background: var(--primary-color, var(--secondary-light));
+  background: var(--primary-color, var(--bg-dark));
   opacity: 0;
   transform: scale(0);
   animation: blockSpread 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -77,7 +77,7 @@
 
 /* Light mode uses different color */
 .light-mode .theme-transition-block {
-  background: var(--bg-color, var(--secondary-light));
+  background: var(--bg-color, var(--bg-light));
 }
 
 /* Batman mode uses dark color */
