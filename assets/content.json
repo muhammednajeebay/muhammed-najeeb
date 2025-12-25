@@ -65,50 +65,97 @@
     {
       "title": "Development",
       "icon": "code",
-      "items": ["Flutter", "Dart", "Provider", "GetX", "BLoC", "Cubit", "GoRouter"]
+      "items": [
+        "Flutter",
+        "Dart",
+        "Provider",
+        "GetX",
+        "BLoC",
+        "Cubit",
+        "GoRouter"
+      ]
     },
     {
       "title": "Architecture",
       "icon": "architecture",
-      "items": ["Clean Architecture", "MVC", "Modular Development"]
+      "items": [
+        "Clean Architecture",
+        "MVC",
+        "Modular Development"
+      ]
     },
     {
       "title": "Integration",
       "icon": "cloud",
-      "items": ["REST API", "GraphQL", "Firebase","Supabase", "WebSockets", "VideoSDK", "Http & Dio"]
+      "items": [
+        "REST API",
+        "GraphQL",
+        "Firebase",
+        "Supabase",
+        "WebSockets",
+        "VideoSDK",
+        "Http & Dio"
+      ]
     },
     {
       "title": "Data Storage",
       "icon": "storage",
-      "items": ["Hive", "SharedPreferences", "Sqflite","ISAR","Firebase"]
+      "items": [
+        "Hive",
+        "SharedPreferences",
+        "Sqflite",
+        "ISAR",
+        "Firebase"
+      ]
     },
     {
       "title": "Tools",
       "icon": "build",
-      "items": ["Git & GitHub", "Postman", "Android Studio", "VS Code"]
+      "items": [
+        "Git & GitHub",
+        "Postman",
+        "Android Studio",
+        "VS Code"
+      ]
     },
     {
       "title": "Others",
       "icon": "more_horiz",
-      "items": ["Unit & Widget Testing", "CI/CD", "GitHub Actions", "Flutter DevTools", "Rive Animations", "Lottie Animations"]
+      "items": [
+        "Unit & Widget Testing",
+        "CI/CD",
+        "GitHub Actions",
+        "Flutter DevTools",
+        "Rive Animations",
+        "Lottie Animations"
+      ]
     }
   ],
   "projects": [
     {
-      "title": "Task Matrix ( In Progress )",
+      "title": "Task Matrix",
+      "status": "in-progress",
       "description": "A scalable task management platform built with Flutter and Supabase \u2014 designed for teams operating across multiple organizations. It balances real-time collaboration, gamified productivity, and clean architecture principles to ensure maintainability and performance.",
       "features": [
         "Implements modular architecture using feature-specific BLoCs",
         "Secure authentication, role management, and real-time updates via Supabase",
         "Task points, leaderboards, and progress tracking for team motivation"
       ],
-      "tech": ["Flutter", "Dart", "Supabase", "BLoC", "GoRouter", "Clean Architecture"],
+      "tech": [
+        "Flutter",
+        "Dart",
+        "Supabase",
+        "BLoC",
+        "GoRouter",
+        "Clean Architecture"
+      ],
       "links": {
         "github": "https://github.com/muhammednajeebay/taskmatrix"
       }
     },
     {
       "title": "Responsive Text Plus",
+      "status": "published",
       "description": "A Flutter package that dynamically scales text size based on screen or container dimensions, ensuring perfect readability and design consistency across devices.",
       "features": [
         "Auto-adjusts font size within defined min/max limits",
@@ -116,7 +163,12 @@
         "Optimized for performance on mobile, web, and desktop",
         "Provides fluid typography and overflow handling options"
       ],
-      "tech": ["Flutter", "Dart", "Pub.dev", "Open Source"],
+      "tech": [
+        "Flutter",
+        "Dart",
+        "Pub.dev",
+        "Open Source"
+      ],
       "links": {
         "pub": "https://pub.dev/packages/responsive_text_plus",
         "github": "https://github.com/muhammednajeebay/responsive_text"
@@ -124,6 +176,7 @@
     },
     {
       "title": "Flutter Portfolio ",
+      "status": "live",
       "description": "A professionally architected Flutter Web application showcasing clean architecture, smooth animations, and automated CI/CD workflows with GitHub Actions deployment.",
       "features": [
         "Clean Architecture with domain-driven design and repository pattern",
@@ -132,7 +185,13 @@
         "Automated testing and deployment pipeline via GitHub Actions",
         "60fps performance with optimized rendering and motion background"
       ],
-      "tech": ["Flutter Web", "Clean Architecture", "flutter_bloc", "go_router", "GitHub Actions"],
+      "tech": [
+        "Flutter Web",
+        "Clean Architecture",
+        "flutter_bloc",
+        "go_router",
+        "GitHub Actions"
+      ],
       "links": {
         "live": "https://muhammednajeebay.github.io/portfolio_/",
         "github": "https://github.com/muhammednajeebay/portfolio_"
@@ -140,6 +199,7 @@
     },
     {
       "title": "ERP Software",
+      "status": "confidential",
       "description": "Enterprise-grade ERP covering inventory control, sales workflows, purchase cycles, and financial accounting \u2014 designed for high reliability and smooth multi-department operations.",
       "features": [
         "Live dashboards with WebSocket for real-time stock & financial data",
@@ -147,10 +207,18 @@
         "Inventory, sales, purchase, and accounts tracking",
         "Role-based access for different user levels"
       ],
-      "tech": ["Flutter", "Dart", "GetX", "GoRouter", "GraphQL", "WebSocket"]
+      "tech": [
+        "Flutter",
+        "Dart",
+        "GetX",
+        "GoRouter",
+        "GraphQL",
+        "WebSocket"
+      ]
     },
     {
       "title": "Learning Management System (LMS)",
+      "status": "confidential",
       "description": "School-focused LMS featuring role-based dashboards for admins, teachers, complete with attendance tracking, assignments, grading, and exam management.",
       "features": [
         "Curriculum planning & teacher assignments",
@@ -158,10 +226,17 @@
         "Role-based dashboards for teachers, students, and admins",
         "Efficient data querying with GraphQL"
       ],
-      "tech": ["Flutter", "Dart", "BLoC", "GoRouter", "GraphQL"]
+      "tech": [
+        "Flutter",
+        "Dart",
+        "BLoC",
+        "GoRouter",
+        "GraphQL"
+      ]
     },
     {
       "title": "Event ERP",
+      "status": "confidential",
       "description": "Custom ERP tailored for event management companies, enabling streamlined client handling, vendor coordination, budgeting, and real-time event workflow tracking.",
       "features": [
         "Booking & slot allocation management",
@@ -169,10 +244,17 @@
         "Financial reporting with automated workflows",
         "Enhanced UI workflows for faster staff productivity"
       ],
-      "tech": ["Flutter", "Dart", "BLoC", "GraphQL", "GoRouter"]
+      "tech": [
+        "Flutter",
+        "Dart",
+        "BLoC",
+        "GraphQL",
+        "GoRouter"
+      ]
     },
     {
       "title": "DIGIBANK",
+      "status": "completed",
       "description": "Banking Application Clone with seamless financial services.",
       "features": [
         "Account overview with balance and transaction details",
@@ -181,10 +263,19 @@
         "API integration using REST",
         "State management using Provider"
       ],
-      "tech": ["Flutter", "Provider", "Clean Architecture", "REST API"]
+      "tech": [
+        "Flutter",
+        "Provider",
+        "Clean Architecture",
+        "REST API"
+      ],
+      "links": {
+        "github": "https://github.com/muhammednajeebay"
+      }
     },
     {
       "title": "YUMMLY",
+      "status": "completed",
       "description": "Recipe Recommendation App with personalized suggestions.",
       "features": [
         "Popular recipe showcase",
@@ -192,10 +283,18 @@
         "Recipe bookmarking system",
         "API integration for live data"
       ],
-      "tech": ["Flutter", "Provider", "REST API"]
+      "tech": [
+        "Flutter",
+        "Provider",
+        "REST API"
+      ],
+      "links": {
+        "github": "https://github.com/muhammednajeebay"
+      }
     },
     {
       "title": "Placement Assistance App",
+      "status": "completed",
       "description": "Platform connecting companies, students, and administrators.",
       "features": [
         "Company job posting functionality",
@@ -203,10 +302,18 @@
         "Admin monitoring dashboard",
         "Role-based access controls"
       ],
-      "tech": ["Flutter", "Provider", "REST API"]
+      "tech": [
+        "Flutter",
+        "Provider",
+        "REST API"
+      ],
+      "links": {
+        "github": "https://github.com/muhammednajeebay"
+      }
     },
     {
       "title": "News Hunt",
+      "status": "completed",
       "description": "Up-to-date news article aggregator application.",
       "features": [
         "Real-time news fetching from newsapi.org",
@@ -214,10 +321,18 @@
         "Bookmarking feature",
         "Responsive article layout"
       ],
-      "tech": ["Flutter", "Provider", "REST API"]
+      "tech": [
+        "Flutter",
+        "Provider",
+        "REST API"
+      ],
+      "links": {
+        "github": "https://github.com/muhammednajeebay"
+      }
     },
     {
       "title": "Quiz App",
+      "status": "completed",
       "description": "Self-assessment knowledge testing application.",
       "features": [
         "Dynamic quiz content fetched from API",
@@ -225,9 +340,14 @@
         "Score tracking and results",
         "State management using Provider"
       ],
-      "tech": ["Flutter", "Provider", "REST API"]
+      "tech": [
+        "Flutter",
+        "Provider",
+        "REST API"
+      ],
+      "links": {
+        "github": "https://github.com/muhammednajeebay"
+      }
     }
   ]
 }
-
-

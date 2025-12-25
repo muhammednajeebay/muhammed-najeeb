@@ -1,7 +1,7 @@
 import { initThemeOnLoad, exitBatmanMode } from "../presentation/controllers/themeController.js";
 import { recreateBackground, initBackgroundInteractions } from "../presentation/controllers/backgroundController.js";
 import { initCursorFollower, initMobileMenu, initTabs, initScrollAnimations, initSmoothScroll, initHeaderScrollEffect } from "../presentation/controllers/uiController.js";
-import { initProjectsAnimations, initLoadMoreProjects, initProjectFeatureToggles } from "../presentation/controllers/projectsController.js";
+import { initProjectsTerminal } from "../projects-terminal.js";
 import { initContactForm } from "../presentation/controllers/contactController.js";
 import { initPortfolio, bindThemeButtons } from "../presentation/controllers/portfolioController.js";
 import { initBlog } from "../presentation/controllers/blogController.js";
@@ -19,9 +19,7 @@ export const startApp = () => {
     initHeaderScrollEffect();
     initBackgroundInteractions();
     recreateBackground();
-    initProjectsAnimations();
-    initLoadMoreProjects();
-    initProjectFeatureToggles();
+    initProjectsTerminal();
     initContactForm();
     await initPortfolio();
     await initBlog();

@@ -357,36 +357,42 @@
     </div>
   </section>
 
-  <!-- Projects Section - Enhanced Animation -->
+  <!-- Projects Section - Terminal Style -->
   <section class="projects" id="projects">
     <div class="container">
       <h2 class="section-title fade-in">Some Things I've Built</h2>
-      <!-- Projects Carousel -->
-      <div class="projects-carousel">
-        <button class="carousel-nav carousel-prev" aria-label="Previous project">
-          <span class="material-icons">chevron_left</span>
-        </button>
 
-        <div class="projects-track-container">
-          <div class="projects-track">
-            <!-- Project cards will be generated dynamically from content.json -->
+      <!-- Terminal Window -->
+      <div class="projects-terminal fade-in">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+          <div class="terminal-controls">
+            <span class="terminal-btn close"></span>
+            <span class="terminal-btn minimize"></span>
+            <span class="terminal-btn maximize"></span>
           </div>
+          <div class="terminal-title">projects.sh</div>
         </div>
 
-        <button class="carousel-nav carousel-next" aria-label="Next project">
-          <span class="material-icons">chevron_right</span>
-        </button>
-      </div>
+        <!-- Terminal Content -->
+        <div class="terminal-content">
+          <!-- Initial prompt -->
+          <div class="terminal-line">
+            <span class="prompt">najeeb@portfolio:~$</span>
+            <span class="command">project.list()</span>
+            <span class="cursor">_</span>
+          </div>
 
-      <!-- Carousel Indicators -->
-      <div class="carousel-indicators"></div>
+          <!-- Projects list will be dynamically generated -->
+          <div class="projects-list" id="projects-list">
+            <!-- Populated by JavaScript -->
+          </div>
 
-      <!-- Load More Button (hidden for carousel) -->
-      <div class="load-more-container" style="display: none;">
-        <button class="load-more-btn" id="load-more-btn">
-          <span>Load More</span>
-          <span class="material-icons">expand_more</span>
-        </button>
+          <!-- Expanded project details -->
+          <div class="project-details" id="project-details">
+            <!-- Populated when project is clicked -->
+          </div>
+        </div>
       </div>
 
     </div>
