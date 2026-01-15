@@ -6,11 +6,25 @@ import { initContactForm } from "../presentation/controllers/contactController.j
 import { initPortfolio, bindThemeButtons } from "../presentation/controllers/portfolioController.js";
 import { initBlog } from "../presentation/controllers/blogController.js";
 import { toggleTheme, activateBatmanMode } from "../presentation/controllers/themeController.js";
+import { splashController } from "../presentation/controllers/splashController.js";
 
 export const startApp = () => {
   document.addEventListener("DOMContentLoaded", async () => {
+    // Initialize theme FIRST
     initThemeOnLoad();
     bindThemeButtons();
+    
+    // Show splash screen with correct theme
+    splashController.show();
+    splashController.applyCurrentTheme();
+    
+    // Update splash screen theme when theme changes
+    const observer = new MutationObserver(() => {
+      splashController.applyCurrentTheme();
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    
+    // Initialize UI components
     initCursorFollower();
     initMobileMenu();
     initTabs();
@@ -21,8 +35,30 @@ export const startApp = () => {
     recreateBackground();
     initProjectsTerminal();
     initContactForm();
-    await initPortfolio();
-    await initBlog();
+    
+    // Load portfolio data with progress tracking
+    try {
+      await splashController.trackLoadingProgress(
+        Promise.all([
+          initPortfolio(),
+          initBlog()
+        ]),
+        3000 // Estimated duration
+      );
+      console.log('Loading completed, progress:', splashController.currentProgress);
+    } catch (error) {
+      console.error('Error loading portfolio data:', error);
+      // Still hide splash screen even if there's an error
+      splashController.updateProgress(100);
+    }
+    
+    // Ensure we're at 100% then hide splash screen
+    splashController.updateProgress(100);
+    console.log('Hiding splash screen');
+    splashController.hide();
+    
+    // Clean up observer
+    observer.disconnect();
   });
   window
     .matchMedia("(prefers-color-scheme: dark)")
