@@ -1,9 +1,8 @@
 import { fetchMediumItems } from "../../infrastructure/http/medium.js";
 
 const stripHtml = (v = "") => {
-  const temp = document.createElement("div");
-  temp.innerHTML = v;
-  return temp.textContent || temp.innerText || "";
+  const doc = new DOMParser().parseFromString(v, "text/html");
+  return doc.body.textContent || "";
 };
 
 const truncate = (text, max = 160) => {
@@ -25,11 +24,20 @@ const formatDate = (value) => {
 };
 
 const resolveImage = (item) => {
-  if (item.thumbnail && item.thumbnail.startsWith("http")) return item.thumbnail;
-  if (item.enclosure && item.enclosure.link && item.enclosure.link.startsWith("http")) return item.enclosure.link;
+  const isTrackingPixel = (url) => url && url.includes("medium.com/_/stat");
+  
+  if (item.thumbnail && item.thumbnail.startsWith("http") && !isTrackingPixel(item.thumbnail)) {
+    return item.thumbnail;
+  }
+  
+  if (item.enclosure && item.enclosure.link && item.enclosure.link.startsWith("http") && !isTrackingPixel(item.enclosure.link)) {
+    return item.enclosure.link;
+  }
+
   const html = item.content || item.description || "";
   const m = html.match(/<img[^>]+src=["']([^"']+)["']/i);
-  if (m && m[1]) return m[1];
+  if (m && m[1] && !isTrackingPixel(m[1])) return m[1];
+
   return "assets/preview.png";
 };
 
