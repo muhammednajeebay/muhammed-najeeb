@@ -2,128 +2,102 @@
 
 ## Description
 This is the personal portfolio of Muhammed Najeeb, a Flutter developer specializing in building exceptional digital experiences for 
-mobile platforms.
+mobile platforms. The site itself is a showcase of modern web engineering, featuring a modular architecture, cinematic animations, and a unique terminal-themed narrative.
 
 ## Features
-* A showcase of my skills and experience as a Flutter developer
-* A collection of projects demonstrating my expertise in mobile app development
-* A contact section for getting in touch with me
+* **Dynamic Content**: Data is centralized in `assets/content.json` for easy updates and maintenance.
+* **Modular Architecture**: Built with a "Clean Architecture" inspired JavaScript structure for scalability.
+* **Terminal Interface**: Interactive, developer-narrative themed sections for skills and projects.
+* **Immersive Design**: Includes a theme-aware splash screen, cursor-following effects, and a modular CSS system.
+* **Batman Mode**: A hidden easter egg theme that transforms the entire portfolio.
+* **Responsive & PWA**: Fully responsive design with PWA support for a native-like experience.
 
-
-## About Project 
-
-A fast, responsive, single‑page portfolio highlighting Flutter development work. Built with semantic HTML, modern CSS, and a small amount of vanilla JavaScript for interactivity and animations.
-
-## Contents
-- Overview
-- Project structure
-- Design strategy
-- JavaScript functions and behavior
-- Usage (run locally, customize, deploy)
-- Assets, SEO and PWA notes
-
-## Overview
-This site showcases experience, projects, skills, and contact details with smooth transitions, dark/light theming, mobile navigation, section‑based animations, and subtle background effects.
-
-## Project structure
+## Project Structure
 ```
 najeeb_portfolio/
 ├─ assets/
-│  ├─ icon/                 # Favicons and webmanifest
-│  ├─ ic_cl.svg             # Inline/brand icon
-│  └─ preview.png           # Social/share preview
-├─ css/                     # (optional) vendor CSS location
-├─ fonts/                   # Custom/web fonts live here
-├─ script/
-│  └─ script.js             # All interactive behavior
-├─ styles/
-│  └─ styles.css            # Site styles (variables, layout, responsive)
-├─ index.html               # Single page app
-├─ manifest.json            # PWA metadata
-├─ robots.txt               # Crawl directives
-├─ sitemap.xml              # Basic sitemap
+│  ├─ content.json          # Centralized data source for the site
+│  ├─ character-frames/     # Assets for cinematic scroll animations
+│  ├─ icon/                 # Favicons and PWA assets
+│  └─ *.svg                 # Logos and brand assets (najeeb_logo, bat_logo)
+├─ fonts/                   # Custom typography (Array, Silkscreen, VT323)
+├─ src/                     # Modular JavaScript
+│  ├─ application/           # App initialization and orchestration
+│  ├─ infrastructure/        # Data fetching and external services
+│  ├─ presentation/          # Domain-specific UI logic
+│  │  └─ controllers/        # Logical controllers (theme, splash, blog, etc.)
+│  └─ projects-terminal.js   # Specialized logic for terminal interaction
+├─ styles/                  # Modular CSS system
+│  ├─ main.css               # Main bundle/entry point
+│  ├─ base.css               # Reset and core variables
+│  ├─ theme-batman.css       # Gotham-inspired alternate theme
+│  └─ *.css                  # Component-specific styles (hero, projects, etc.)
+├─ index.html               # Semantic HTML foundation
+├─ manifest.json            # PWA configuration
 └─ README.md
 ```
 
-## Design strategy
-- Theme via CSS variables: Colors, spacing, transitions are set on `:root` and toggled with `body.light-mode`.
-- Responsive first: Layout adapts across breakpoints with dedicated mobile/landscape rules for the hero and sections.
-- Motion as feedback: Keyframe animations (`fadeInUp`, `projectFadeIn`, `pulse`, `float`) cue context rather than distract.
-- Accessibility considerations: Reduced text/contrast shifts between themes, readable font sizes, and semantic structure.
+## Design Strategy
+- **Modular CSS**: Styles are split by component for better maintainability and performance.
+- **Motion as Narrative**: Uses directional motion (`fadeInUp`), scale transforms, and perspective lines to create a cinematic feel.
+- **Glassmorphism & Gradients**: Premium aesthetics with subtle blurs, HSL-tailored colors, and smooth transitions.
+- **Accessibility**: Semantic HTML structure, ARIA labels for interactive elements, and optimized font scaling.
 
-### Key CSS areas in `styles/styles.css`
-- Variables and base reset
-- Header + sticky behavior styling
-- Hero section (desktop/mobile reflow, SVG handling)
-- Sections: About, Skills, Experience (tabs), Projects (cards), Contact
-- Background layers: `.bg-animation`, `.cursor-follower`, `.invert-circle`
-- Mobile menu slide‑in and staggered fades
+## JavaScript Architecture
+The project follows a modular, decoupled approach to handle complexity:
+- **`initApp.js`**: Orchestrates the sequential loading of themes, splash screens, and data-driven components.
+- **Controllers**: Each major area (Theme, Splash, Background, Blog, Projects) has a dedicated controller in `src/presentation/controllers/`.
+- **Infrastructure Layer**: Handles data retrieval from the local `content.json` or external APIs (e.g., Medium RSS via storage).
+- **Interactivity**: Custom implementation of cursor followers, smooth scrolling, and scroll-driven reveal animations.
 
-## JavaScript functions and behavior (`script/script.js`)
+## Technical Deep Dive
 
-Theme
-- `toggleTheme()`: Toggles `body.light-mode`, updates all theme icons, persists preference in `localStorage`, and updates `<meta name="theme-color">` via `updateThemeColor(isDarkMode)`.
-- System preference listener: Applies system dark/light if no saved preference.
+### Terminal System (`src/projects-terminal.js`)
+The specialized `ProjectsTerminal` module handles the interactive developer narrative:
+- **Asynchronous Typing**: Uses a custom `Promise`-based typing engine (`typeText`) to simulate real-time command execution.
+- **Dynamic Context**: Intercepts content from `content.json` to generate real-time "system logs" for each project.
+- **Scroll Orchestration**: Automatically manages focus and scrolling during project expansion and contraction.
 
-Mobile navigation
-- Slide‑in menu controlled by `.mobile-menu`, with `closeMobileMenu()` and listeners for button, backdrop click, and `Escape`.
+### Advanced Theme Engine (`src/presentation/controllers/themeController.js`)
+The theme system goes beyond simple class toggling:
+- **Block-Spread Transition**: On toggle, a custom JavaScript engine generates a 20x20 grid of physical DOM elements that spread across the screen in a staggered pattern based on distance from the origin button.
+- **SVG Morphing**: Hero SVGs use `stroke-dashoffset` path-drawing animations synchronized with CSS transitions.
+- **Easter Egg (Batman Mode)**: A specialized state that overrides global variables, swaps brand assets (`bat_logo.svg`), and triggers custom typing overrides ("I AM BATMAN").
 
-Tabbed experience
-- Click handlers on `.tab-button` toggle `.tab-content.active` by `data-tab` id.
+### UI Orchestration (`src/application/initApp.js`)
+- **Splash Progress Tracking**: Uses a sophisticated loading controller that tracks asynchronous data fetching (`initPortfolio`, `initBlog`) to provide real-time percentage feedback.
+- **Theme Persistence**: Themes are managed via the Infrastructure layer and persisted in `localStorage`, with fallback to `prefers-color-scheme` media queries.
 
-Cursor + background animation
-- Follower and invert circle track mouse position, grow/shrink on movement pause, and gently nudge floating background icons.
-- `createFlutterIcons()`: Creates floating Flutter, Material, GetX, and Dart icons with randomized sizes/positions and continuous `float` animation.
+## Data Management
+The portfolio is designed to be "headless" — content is decoupled from the UI.
 
-Scroll and intersection animations
-- `checkAnimations()`: Adds `appear` class to elements with `.fade-in`, `.slide-in-right`, `.slide-in-left` when in viewport.
-- IntersectionObservers for `.projects` (stagger cards) and `.skills` (reveal chips).
-
-Smooth anchor scrolling
-- Intercepts in‑page links and scrolls to target with offset for header.
-
-Contact form
-- Submits via `fetch(form.action)` (expects a service like Formspree). Shows a snackbar message on success/failure.
-
-Typing effect
-- `initTypingAnimation()`: Types the string from `data-text` into `.typing-text` after a short delay.
+### `assets/content.json` Schema
+The centralized data source follows a strict schema:
+- **`hero`**: Controls the greeting, typing string, and social links.
+- **`experience`**: Array of job objects with `tabId` matching the HTML structure.
+- **`skillCategories`**: Defines the categorization used in the terminal-style skills display.
+- **`projects`**: Schema including `title`, `status`, `tech` (tags), and `links` objects (github, live, pub).
 
 ## Usage
 
-Run locally
-1. Clone/download this repository.
-2. Open `index.html` directly in a browser, or serve statically:
-   - Node: `npx serve .` (or any static server)
+### Run Locally
+1. Clone the repository.
+2. Open `index.html` in a browser, or use a static server for the best experience:
+   - Node: `npx -y serve .`
    - Python: `python -m http.server 8080`
 
-Customize
-- Colors/theme: Edit CSS variables in `styles/styles.css` (see `:root` and `body.light-mode`).
-- Sections/content: Update `index.html` copy and project entries.
-- Animations: Adjust keyframes/timings in CSS, or JS intervals/durations in `script.js`.
-- Icons/background: Tweak `createFlutterIcons()` counts and icon sets.
-- Contact: Point the form `action` to your form backend and, if needed, adapt headers/handlers.
-
-Deploy
-- Any static hosting works (GitHub Pages, Netlify, Vercel, Cloudflare Pages). Upload the root as is.
+### Customize
+- **Content**: Update `assets/content.json` to change personal info, experience, skills, or projects.
+- **Design system**: Edit variables in `styles/base.css` or `styles/theme-batman.css`.
+- **Behavior**: Tweak controller logic in `src/presentation/controllers/`.
 
 ## Assets, SEO and PWA
-- Favicons and manifest live in `assets/icon/`; `manifest.json` is configured for add‑to‑home‑screen.
-- `robots.txt` and `sitemap.xml` help basic SEO/crawling.
-- `assets/preview.png` can be used for social previews (set appropriate meta tags in `index.html`).
-
-## Fonts
-Place custom webfonts in `fonts/`. If using the Array family (see `Array_Complete/Fonts/WEB/README.md`):
-1. Copy the `array/` folder into `fonts/`.
-2. Copy `array.css` into `css/` (or merge its `@font-face` into your main stylesheet).
-3. Import at the top of your main stylesheet:
-   
-   ```css
-   @import url('array.css');
-   ```
-
-4. Then reference font families like `Array-Regular`, `Array-Wide`, etc.
+- **SEO Ready**: Proper meta tags, JSON-LD structured data, and descriptive headings.
+- **PWA Support**: Installable on mobile and desktop via `manifest.json`.
+- **Assets**: Optimized SVGs and a dedicated social share preview (`assets/preview.png`).
 
 ## Notes
-- The code intentionally favors minimal dependencies: no frameworks required.
-- Keep `theme-color` meta tag id as `theme-color-meta` for runtime updates.
+- **Minimal Dependencies**: The site is written in vanilla JS and CSS to ensure maximum performance and low footprint.
+- **Performance**: Designed for 60fps animations even on mobile devices.
+- **Deployment**: Optimized for static hosting on platforms like Netlify or GitHub Pages.
 
