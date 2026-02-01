@@ -133,6 +133,31 @@
   ],
   "projects": [
     {
+      "title": "Device Info",
+      "status": "completed",
+      "description": "A premium Flutter-based device information dashboard delivering real-time hardware insights through custom-rendered visualizations. Built with BLoC and Clean Architecture, it combines native-level accuracy with high-performance animations and a futuristic glassmorphic UI.",
+      "features": [
+        "Real-time battery, CPU, RAM, storage, sensors, network, and location monitoring",
+        "CustomPaint-driven visualizations (radar sweep, liquid battery, signal waves)",
+        "Native Android & iOS data access via Method and Event Channels",
+        "Advanced animation orchestration with performance-aware throttling",
+        "Accessibility-aware rendering with reduced-motion and battery-saver modes"
+      ],
+      "tech": [
+        "Flutter",
+        "Dart",
+        "BLoC",
+        "Method Channels",
+        "Event Channels",
+        "CustomPaint",
+        "Clean Architecture",
+        "flutter_animate"
+      ],
+      "links": {
+        "github": "https://github.com/muhammednajeebay/device_info"
+      }
+    },
+    {
       "title": "Task Matrix",
       "status": "in-progress",
       "description": "A scalable task management platform built with Flutter and Supabase \u2014 designed for teams operating across multiple organizations. It balances real-time collaboration, gamified productivity, and clean architecture principles to ensure maintainability and performance.",
